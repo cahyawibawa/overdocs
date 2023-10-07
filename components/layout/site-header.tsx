@@ -9,7 +9,7 @@ import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
 import { SiteLogo } from './site-logo';
 import { SiteMenu } from './site-menu';
-
+import { siteConfig } from '@/config/site';
 interface Props {
   className?: string;
 }
@@ -32,7 +32,7 @@ export function SiteHeader({ className }: Props) {
           <Link href='/changelog'>Changelog</Link>
         </Button> */}
         <Button variant='link' asChild className='md:mr-3'>
-          <Link href='/docs' target='_blank'>
+          <Link href={siteConfig.links.docs}>
             Docs
             <ArrowUpRight className='ml-1 h-4 w-4 flex-shrink-0' />
           </Link>
@@ -42,8 +42,8 @@ export function SiteHeader({ className }: Props) {
         <div className='block md:hidden'>
           <SiteMenu />
         </div>
-        {/* <Button asChild className='rounded-full'>
-          <Link href='/app/sign-up'>Sign Up</Link>
+        {/* <Button asChild className=' rounded-full'>
+          <Link href={siteConfig.links.docs}>Get Started</Link>
         </Button> */}
       </div>
     </header>

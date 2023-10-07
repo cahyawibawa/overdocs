@@ -5,9 +5,10 @@ export const siteConfig = {
   description: 'A website for the overdocs project',
   links: {
     twitter: '',
-    github: '',
+    github: 'https://github.com/cahyawibawa/overdocs',
     cal: '',
     discord: '',
+    docs: 'https://overdocs.mintlify.app',
   },
   keywords: [
     'Nextjs',

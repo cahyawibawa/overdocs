@@ -16,9 +16,9 @@ import {
 import { cn } from '@/lib/utils';
 
 const pages = [
-  { href: '/changelog', title: 'Changelog' },
+  // { href: '/changelog', title: 'Changelog' },
   { href: '/blog', title: 'Blog' },
-  { href: '/docs', title: 'Docs' },
+  { href: '/https://overdocs.mintlify.app/introduction', title: 'Docs' },
 ];
 
 export function SiteMenu() {
