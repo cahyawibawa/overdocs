@@ -1,0 +1,39 @@
+---
+title: 'Installation'
+description: ''
+---
+
+Persyaratan Sistem:
+
+- [Node.js 16.14↗](https://nodejs.org/en) atau yang lebih baru.
+- macOS, Windows (termasuk WSL), dan Linux didukung.
+
+## Instalasi otomatis
+
+Kami merekomendasikan memulai aplikasi Next.js baru menggunakan `create-next-app`, yang mengatur semua hal secara otomatis untuk Anda. Untuk membuat sebuah proyek, jalankan:
+
+```js terminal
+npx create-next-app@latest
+```
+
+Pada saat pemasangan, Anda akan melihat prompt-prompt berikut:
+
+```js terminal
+1. What is your project named? my-app
+2. Would you like to use TypeScript? No / Yes
+3. Would you like to use ESLint? No / Yes
+4. Would you like to use Tailwind CSS? No / Yes
+5. Would you like to use `src/` directory? No / Yes
+6. Would you like to use App Router? (recommended) No / Yes
+7. Would you like to customize the default import alias (@/ * )? No / Yes
+8. What import alias would you like configured? @ / *
+```
+
+Setelah prompt-prompt tersebut, `create-next-app` akan membuat sebuah folder dengan nama proyek Anda dan menginstal dependensi yang diperlukan.
+
+<Tip>
+  Next.js sekarang sudah dilengkapi dengan konfigurasi [TypeScript](),
+  [ESLint](), dan [Tailwind CSS]() secara default. opsional Anda dapat
+  menggunakan direktori src di root proyek Anda untuk memisahkan kode aplikasi
+  Anda dari file-file konfigurasi.
+</Tip>
