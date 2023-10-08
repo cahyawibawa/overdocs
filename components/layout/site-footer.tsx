@@ -34,6 +34,7 @@ export function SiteFooter({ className }: Props) {
             <p className='text-foreground font-semibold'>Credits</p>
             <FooterLink href='https://ui.shadcn.com/' label='uishadcn' />
             <FooterLink href='https://www.openstatus.dev/' label='openstatus' />
+            <FooterLink href='https://mintlify.com/' label='mintlify' />
           </div>
         </div>
       </Shell>

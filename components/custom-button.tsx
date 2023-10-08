@@ -8,7 +8,7 @@ import CountingNumbers from '@/components/counting-numbers';
 
 export async function CustomButton() {
   const { stargazers_count: stars } = await fetch(
-    'https://api.github.com/repos/dillionverma/llm.report',
+    'https://api.github.com/repos/cahyawibawa/overdocs',
     {
       ...(process.env.GITHUB_OAUTH_TOKEN && {
         headers: {
