@@ -1,0 +1,142 @@
+---
+title: 'Routing Fundamentals'
+description: 'Tulang punggung dari setiap aplikasi adalah routing. Halaman ini akan memperkenalkan Anda pada konsep-konsep dasar routing untuk web dan bagaimana mengelola routing dalam Next.js.'
+---
+
+## Terminologi
+
+Pertama, Anda akan melihat istilah-istilah ini digunakan dalam dokumentasi. Berikut adalah referensi cepat:
+
+<Frame>
+  <img
+    alt='Core design principles'
+    src='https://nextjs.org/_next/image?url=%2Fdocs%2Fdark%2Fterminology-component-tree.png&w=1920&q=75&dpl=dpl_6H9thvUasCq9Z5qUADxX2YGgWnFv'
+  />
+</Frame>
+
+- **Pohon (Tree)** : Sebuah konvensi untuk memvisualisasikan struktur hierarkis. Misalnya, sebuah pohon komponen dengan komponen-komponen induk dan anak, sebuah struktur folder, dll.
+- **Subpohon (Subtree)**: Bagian dari pohon, dimulai dari akar baru (pertama) dan berakhir di daun-daun (terakhir).
+- **Akar (Root)**: Node pertama dalam sebuah pohon atau subpohon, seperti tata letak akar.
+- **Daun (Leaf)**: Node dalam sebuah subpohon yang tidak memiliki anak, seperti segmen terakhir dalam jalur URL.
+
+<Frame>
+  <img
+    alt='Core design principles'
+    src='https://nextjs.org/_next/image?url=%2Fdocs%2Fdark%2Fterminology-url-anatomy.png&w=1920&q=75&dpl=dpl_6H9thvUasCq9Z5qUADxX2YGgWnFv'
+  />
+</Frame>
+
+- **Segmen URL (URL Segment)**: Bagian dari jalur URL yang dibatasi oleh garis miring.
+- **Jalur URL (URL Path)**: Bagian dari URL yang muncul setelah domain (terdiri dari segmen-segmen).
+
+## The `App` Router
+
+Pada versi 13, Next.js memperkenalkan **App Router** baru yang dibangun di atas [React Server Components](), yang mendukung tata letak bersama, routing bersarang, status pemuatan, penanganan kesalahan, dan lainnya.
+
+`App` Router berfungsi dalam direktori baru yang bernama `app`. Direktori `app` bekerja bersama dengan direktori `pages` untuk memungkinkan adopsi bertahap. Ini memungkinkan Anda mengadopsi beberapa rute aplikasi Anda ke perilaku baru sambil tetap menjaga rute lainnya dalam direktori `pages` untuk perilaku sebelumnya. Jika aplikasi Anda menggunakan direktori `pages`, lihat juga dokumentasi [Pages Router]().
+
+<Note>
+  **Penting untuk diketahui:** App Router memiliki prioritas lebih tinggi
+  daripada Pages Router. Rute-rute di seluruh direktori tidak boleh meresolusi
+  ke jalur URL yang sama dan akan menyebabkan kesalahan waktu pembangunan untuk
+  mencegah konflik.
+</Note>
+
+<Frame>
+  <img src='https://nextjs.org/_next/image?url=%2Fdocs%2Fdark%2Fnext-router-directories.png&w=1920&q=75&dpl=dpl_JAMnhWMXXnjUMASoC6DujN1XhoEg' />
+</Frame>
+
+Secara default, komponen di dalam `app` adalah [React Server Components](). Ini adalah optimasi kinerja yang memungkinkan Anda untuk mengadopsi mereka dengan mudah, dan Anda juga dapat menggunakan [Client Components.]()
+
+<Note>
+  **Rekomendasi:** Lihat halaman [Server]() jika Anda baru mengenal Server
+  Components.
+</Note>
+
+## Peran Folder dan File
+
+Next.js menggunakan router berbasis sistem file di mana:
+
+- **Folder** digunakan untuk mendefinisikan rute. Sebuah rute adalah satu jalur dari folder bersarang, mengikuti hierarki sistem file dari **folder akar (root)** ke folder **daun terakhir (leaf)** yang mencakup file `page.js`. Lihat [Mendefinisikan Rute]().
+- **File** digunakan untuk membuat UI yang ditampilkan untuk segmen rute. Lihat [file khusus.]()
+
+## Segmen rute
+
+Setiap folder dalam sebuah rute mewakili sebuah **segmen rute**. Setiap segmen rute dipetakan ke segmen yang sesuai dalam **jalur URL**.
+
+<Frame>
+  <img src='https://nextjs.org/_next/image?url=%2Fdocs%2Fdark%2Froute-segments-to-path-segments.png&w=1920&q=75&dpl=dpl_JAMnhWMXXnjUMASoC6DujN1XhoEg' />
+</Frame>
+
+## Rute Bersarang (Nested Routes)
+
+Untuk membuat rute bersarang, Anda dapat menyusun folder di dalam folder lain. Sebagai contoh, Anda dapat menambahkan rute `/dashboard/settings` baru dengan menyusun dua folder baru di dalam direktori `app`.
+
+Rute `/dashboard/settings` terdiri dari tiga segmen:
+
+- `/` (Segmen Akar)
+- `dashboard` (Segmen)
+- `settings` (Segmen Daun)
+
+## Konvensi File
+
+Next.js menyediakan serangkaian file khusus untuk membuat UI dengan perilaku tertentu dalam rute bersarang:
+
+| Fitur                                                                   | Deskripsi                                                              |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [layout](https://nextjs.org/docs/app/building-your-application/routing) | UI bersama untuk segmen dan anak-anaknya                               |
+| [page]()                                                                | UI unik untuk sebuah rute dan membuat rute dapat diakses secara publik |
+| [loading]()                                                             | UI pemuatan untuk segmen dan anak-anaknya                              |
+| [not-found]()                                                           | UI tidak ditemukan untuk segmen dan anak-anaknya                       |
+| [error](g)                                                              | UI kesalahan untuk segmen dan anak-anaknya                             |
+| [global-error]()                                                        | UI Error Global                                                        |
+| [route]()                                                               | Titik akhir API sisi server                                            |
+| [template]()                                                            | UI Tata Letak yang diperbarui khusus                                   |
+| [default]()                                                             | UI cadangan untuk Rute Paralel [Parallel Routes]()                     |
+
+<Note>
+  **Penting untuk diketahui:** Ekstensi file `.js`, `.jsx`, atau `.tsx` dapat
+  digunakan untuk file khusus.
+</Note>
+
+## Hirarki Komponen
+
+Komponen-komponen React yang didefinisikan dalam file-file khusus dari segmen rute dirender dalam hirarki tertentu:
+
+- `layout.js`
+- `template.js`
+- `error.js` (Batasan kesalahan React)
+- `loading.js` (Batasan penantian React)
+- `not-found.js` (Batasan kesalahan React)
+- `page.js` atau `layout.js` yang bersarang
+
+<Frame>
+  <img src='https://nextjs.org/_next/image?url=%2Fdocs%2Fdark%2Ffile-conventions-component-hierarchy.png&w=1920&q=75&dpl=dpl_6H9thvUasCq9Z5qUADxX2YGgWnFv' />
+</Frame>
+
+Dalam rute bersarang, komponen-komponen dari segmen akan bersarang **di dalam** komponen-komponen dari segmen induk.
+
+<Frame>
+  <img src='https://nextjs.org/_next/image?url=%2Fdocs%2Fdark%2Fnested-file-conventions-component-hierarchy.png&w=1920&q=75&dpl=dpl_JAMnhWMXXnjUMASoC6DujN1XhoEg' />
+</Frame>
+
+## Kolkasi (Colocation)
+
+Selain file-file khusus, Anda memiliki opsi untuk meletakkan file-file Anda sendiri (misalnya, komponen, gaya, uji, dll) di dalam folder-folder dalam direktori `app`.
+
+Hal ini karena sementara folder-foder menentukan rute-rute, hanya konten yang dikembalikan oleh `page.js` atau `route.js` yang dapat diakses secara publik.
+
+<Frame>
+  <img src='https://nextjs.org/_next/image?url=%2Fdocs%2Fdark%2Fproject-organization-colocation.png&w=1920&q=75&dpl=dpl_6H9thvUasCq9Z5qUADxX2YGgWnFv' />
+</Frame>
+
+Pelajari lebih lanjut tentang [Organisasi Proyek dan Kolkasi Project Organization and Colocation]().
+
+## Pola Routing Lanjutan
+
+App Router juga menyediakan serangkaian konvensi untuk membantu Anda mengimplementasikan pola-pola routing yang lebih maju. Ini termasuk:
+
+- [Rute Paralel Parallel Routes](): Memungkinkan Anda untuk secara bersamaan menampilkan dua atau lebih halaman dalam tampilan yang sama yang dapat dinavigasi secara independen. Anda dapat menggunakannya untuk tampilan terpisah yang memiliki navigasi subnya sendiri. Misalnya, Dashboards.
+- [Rute yang Diintersep Intercepting Routes](): Memungkinkan Anda untuk mengintersep rute dan menampilkannya dalam konteks rute lain. Anda dapat menggunakannya ketika menjaga konteks untuk halaman saat ini penting. Misalnya, melihat semua tugas saat mengedit satu tugas atau memperluas sebuah foto dalam umpan.
+
+Pola-pola ini memungkinkan Anda untuk membangun UI yang lebih kaya dan kompleks, mendemokratisasikan fitur-fitur yang secara historis kompleks untuk tim kecil dan pengembang individu untuk mengimplementasikannya.
