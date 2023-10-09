@@ -65,13 +65,7 @@
       "pages": [
         {
           "group": "Routing",
-          "pages": [
-            "nextjs/build-your-apps/routing/1.define-routes",
-            "nextjs/build-your-apps/routing/2.pages-layouts",
-            "nextjs/build-your-apps/routing/3.linking-navigation",
-            "nextjs/build-your-apps/routing/4.route-groups",
-            "nextjs/build-your-apps/routing/5.dynamic-routes"
-          ],
+          "pages": ["nextjs/build-your-apps/routing/0.routes-fundamentals"],
           "icon": "route"
         },
         {
