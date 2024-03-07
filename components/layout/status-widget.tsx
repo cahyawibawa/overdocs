@@ -1,4 +1,4 @@
-import * as z from 'zod';
+import * as z from 'zod'
 
 const statusEnum = z.enum([
   'operational',
@@ -7,9 +7,9 @@ const statusEnum = z.enum([
   'major_outage',
   'under_maintenance',
   'unknown',
-]);
+])
 
-const statusSchema = z.object({ status: statusEnum });
+const statusSchema = z.object({ status: statusEnum })
 
 const dictionary = {
   operational: {
@@ -36,31 +36,31 @@ const dictionary = {
     label: 'Under Maintenance',
     color: 'bg-gray-500',
   },
-} as const;
+} as const
 
 export async function StatusWidget({ slug }: { slug: string }) {
   const res = await fetch(`https://api.openstatus.dev/public/status/${slug}`, {
     next: { revalidate: 60 }, // cache request for 60 seconds
-  });
-  const data = await res.json();
-  const parsed = statusSchema.safeParse(data);
+  })
+  const data = await res.json()
+  const parsed = statusSchema.safeParse(data)
 
   if (!parsed.success) {
-    return null;
+    return null
   }
 
-  const key = parsed.data.status;
-  const { label, color } = dictionary[key];
+  const key = parsed.data.status
+  const { label, color } = dictionary[key]
 
   return (
     <a
-      className='border-border text-foreground/70 hover:bg-muted hover:text-foreground inline-flex max-w-fit items-center gap-2 rounded-md border px-3 py-1 text-sm'
+      className="inline-flex max-w-fit items-center gap-2 rounded-md border border-border px-3 py-1 text-sm text-foreground/70 hover:bg-muted hover:text-foreground"
       href={`https://${slug}.openstatus.dev`}
-      target='_blank'
-      rel='noreferrer'
+      target="_blank"
+      rel="noreferrer"
     >
       {label}
-      <span className='relative flex h-2 w-2'>
+      <span className="relative flex h-2 w-2">
         {parsed.data.status === 'operational' ? (
           <span
             className={`absolute inline-flex h-full w-full animate-ping rounded-full ${color} opacity-75 duration-1000`}
@@ -71,5 +71,5 @@ export async function StatusWidget({ slug }: { slug: string }) {
         />
       </span>
     </a>
-  );
+  )
 }

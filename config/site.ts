@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'overdocs',
+  name: 'OverDocs',
   url: '',
   ogImage: '',
   description: 'A website for the overdocs project',
