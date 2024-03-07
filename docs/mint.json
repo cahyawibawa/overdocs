@@ -8,13 +8,12 @@
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#7E53F8",
-    "light": "#BFA8FF",
-    "dark": "#4C22C0",
-    "ultraLight": "#E4DAFF",
-    "ultraDark": "#270A7A",
+    "primary": "#808080",
+    "light": "#FFFFFF",
+    "dark": "#000000",
     "background": {
-      "dark": "#121212"
+      "dark": "#000000",
+      "light": "#FFFFFF"
     }
   },
   "backgroundImage": "/images/background.png",
@@ -24,23 +23,11 @@
     "thumbsRating": true
   },
   "primaryTab": {
-    "name": "Next.js 13"
+    "name": "Web Development"
   },
-  "tabs": [
-    {
-      "name": "Vite",
-      "url": "api-reference"
-    }
-  ],
-  "topbarLinks": [
-    {
-      "name": "Contribute",
-      "url": "mailto:hi@mintlify.com"
-    }
-  ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "type": "github",
+    "url": "https://github.com/cahyawibawa/overdocs"
   },
 
   "anchors": [
@@ -58,37 +45,26 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["nextjs/introduction", "nextjs/installation"]
+      "pages": ["introduction"]
     },
     {
-      "group": "Building your Application",
+      "group": "Core Resources",
+      "icon": "layer-group",
       "pages": [
         {
-          "group": "Routing",
-          "pages": ["nextjs/build-your-apps/routing/0.routes-fundamentals"],
-          "icon": "route"
-        },
-        {
-          "group": "Data Fetching",
-          "pages": [
-            "nextjs/build-your-apps/data-fetching/fetching-caching-revalidating"
-          ],
-          "icon": "code"
+          "group": "Tech stacks",
+          "pages": ["tech-stack/frontend", "tech-stack/backend",  "tech-stack/fullstack", "tech-stack/database", "tech-stack/auth"]
         }
       ]
     },
     {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
+      "group": "Essentials",
+      "pages": ["essentials/roadmap"]
+
     },
     {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
-      ]
+      "group": "Other",
+      "pages": ["other/philosophy"]
     }
   ],
   "footerSocials": {
