@@ -27,8 +27,8 @@ export function ThemeToggle({ isDropDown = false }: { isDropDown?: boolean }) {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors disabled:pointer-events-none disabled:opacity-50">
-            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 stroke-neutral-600 transition-all duration-200 hover:stroke-primary dark:-rotate-90 dark:scale-0 dark:stroke-neutral-500 dark:hover:stroke-white" />
-            <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 stroke-neutral-600 transition-all duration-200 hover:stroke-primary dark:rotate-0 dark:scale-100 dark:stroke-neutral-500 dark:hover:stroke-white" />
+            <Sun className="size-[1.2rem] rotate-0 scale-100 stroke-neutral-600 transition-all duration-200 hover:stroke-primary dark:-rotate-90 dark:scale-0 dark:stroke-neutral-500 dark:hover:stroke-white" />
+            <Moon className="absolute size-[1.2rem] rotate-90 scale-0 stroke-neutral-600 transition-all duration-200 hover:stroke-primary dark:rotate-0 dark:scale-100 dark:stroke-neutral-500 dark:hover:stroke-white" />
             <span className="sr-only">Toggle theme</span>
           </button>
         </DropdownMenuTrigger>
