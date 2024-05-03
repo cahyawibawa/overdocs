@@ -1,5 +1,6 @@
 import type { FeatureDescription } from '@/config/features'
 import { cn } from '@/lib/utils'
+import React from 'react'
 import type { ValidIcon } from '../icons'
 import { Icons } from '../icons'
 import { Shell } from '../shell'
@@ -13,24 +14,43 @@ export function CardContainer({ children }: { children: React.ReactNode }) {
   )
 }
 
-export function CardHeader({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex flex-col items-center justify-center gap-3">
-      {children}
-    </div>
-  )
-}
+const CardHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn('flex flex-col space-y-1.5 p-6', className)}
+    {...props}
+  />
+))
+CardHeader.displayName = 'CardHeader'
+
+const CardTitle = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h3
+    ref={ref}
+    className={cn(
+      'text-2xl font-semibold leading-none tracking-tight',
+      className
+    )}
+    {...props}
+  />
+))
+CardTitle.displayName = 'CardTitle'
 
 export function CardIcon({ icon }: { icon: ValidIcon }) {
   const Icon = Icons[icon]
   return (
     <div className="rounded-full border border-border p-2">
-      <Icon className="h-5 w-5" />
+      <Icon className="size-5" />
     </div>
   )
 }
 
-export function CardTitle({ children }: { children: React.ReactNode }) {
+export function CardTitle3({ children }: { children: React.ReactNode }) {
   return (
     <h3 className="bg-gradient-to-tl from-[hsl(var(--muted))] from-0% to-[hsl(var(--foreground))] to-40% bg-clip-text text-center font-cal text-3xl text-transparent">
       {children}
@@ -39,7 +59,10 @@ export function CardTitle({ children }: { children: React.ReactNode }) {
 }
 
 export function CardDescription({ children }: { children: React.ReactNode }) {
-  return <p className="text-center text-muted-foreground">{children}</p>
+  return <p className="text-sm text-muted-foreground">{children}</p>
+}
+export function CardDescription2({ children }: { children: React.ReactNode }) {
+  return <p className="text-center text-sm text-muted-foreground">{children}</p>
 }
 
 export function CardContent({
@@ -87,7 +110,7 @@ export function CardFeature(props: FeatureDescription) {
     <li>
       <p className="flex flex-col">
         <span>
-          <FeatureIcon className="mb-1 mr-1.5 inline-flex h-4 w-4 text-foreground/80" />
+          <FeatureIcon className="mb-1 mr-1.5 inline-flex size-4 text-foreground/80" />
           <span className="font-medium text-foreground">
             {props.catchline.replace('.', '')}
           </span>{' '}
@@ -101,4 +124,79 @@ export function CardFeature(props: FeatureDescription) {
       ) : null}
     </li>
   )
+}
+
+const Card = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      'rounded-lg border bg-card text-card-foreground shadow-sm',
+      className
+    )}
+    {...props}
+  />
+))
+Card.displayName = 'Card'
+
+// eslint-disable-next-line react/display-name
+const CardTitle2 = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h3
+    ref={ref}
+    className={cn(
+      'text-2xl font-semibold leading-none tracking-tight',
+      className
+    )}
+    {...props}
+  />
+))
+CardTitle.displayName = 'CardTitle'
+
+// eslint-disable-next-line react/display-name
+const CardContent2 = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />
+))
+CardContent.displayName = 'CardContent'
+
+const CardFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn('flex items-center p-6 pt-0', className)}
+    {...props}
+  />
+))
+CardFooter.displayName = 'CardFooter'
+
+// eslint-disable-next-line react/display-name
+const CardHeader2 = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn('flex flex-col space-y-1.5 p-6', className)}
+    {...props}
+  />
+))
+CardHeader.displayName = 'CardHeader'
+
+export {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardTitle2,
+  CardContent2,
+  CardHeader2,
+  CardFooter,
 }
