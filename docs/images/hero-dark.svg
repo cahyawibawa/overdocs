@@ -54,80 +54,80 @@
 <feGaussianBlur stdDeviation="120" result="effect1_foregroundBlur_39_1471"/>
 </filter>
 <linearGradient id="paint0_linear_39_1471" x1="1.04308e-05" y1="320" x2="710.784" y2="26.0793" gradientUnits="userSpaceOnUse">
-<stop stop-color="#F3003A" stop-opacity="0.09"/>
-<stop offset="0.729167" stop-color="#951168" stop-opacity="0.08"/>
+<stop stopColor="#F3003A" stop-opacity="0.09"/>
+<stop offset="0.729167" stopColor="#951168" stop-opacity="0.08"/>
 </linearGradient>
 <radialGradient id="paint1_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(240 270) rotate(-47.3279) scale(870.459 870.459)">
-<stop stop-color="#AA82FF"/>
-<stop offset="0.168642" stop-color="#AA82FF"/>
-<stop offset="0.386895" stop-color="#7E42FF" stop-opacity="0"/>
-<stop offset="1" stop-color="#7E42FF" stop-opacity="0"/>
+<stop stopColor="#AA82FF"/>
+<stop offset="0.168642" stopColor="#AA82FF"/>
+<stop offset="0.386895" stopColor="#7E42FF" stop-opacity="0"/>
+<stop offset="1" stopColor="#7E42FF" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint2_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(250 255) rotate(-41.7108) scale(308.099 308.099)">
-<stop offset="0.218594" stop-color="#FF7246" stop-opacity="0.73"/>
-<stop offset="1" stop-color="#A073FF" stop-opacity="0"/>
+<stop offset="0.218594" stopColor="#FF7246" stop-opacity="0.73"/>
+<stop offset="1" stopColor="#A073FF" stop-opacity="0"/>
 </radialGradient>
 <linearGradient id="paint3_linear_39_1471" x1="384" y1="144" x2="252" y2="270" gradientUnits="userSpaceOnUse">
-<stop offset="0.0717997" stop-color="#672191"/>
-<stop offset="0.45027" stop-color="#C963CB"/>
-<stop offset="0.675676" stop-color="#FB695F"/>
-<stop offset="1" stop-color="#EB0331"/>
+<stop offset="0.0717997" stopColor="#672191"/>
+<stop offset="0.45027" stopColor="#C963CB"/>
+<stop offset="0.675676" stopColor="#FB695F"/>
+<stop offset="1" stopColor="#EB0331"/>
 </linearGradient>
 <radialGradient id="paint4_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(263 76) rotate(47.663) scale(243.508)">
-<stop stop-color="#7219B7"/>
-<stop offset="1" stop-color="#CD07AD"/>
+<stop stopColor="#7219B7"/>
+<stop offset="1" stopColor="#CD07AD"/>
 </radialGradient>
 <radialGradient id="paint5_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(288.081 100.216) rotate(47.663) scale(173.307)">
-<stop stop-color="#FD22D9"/>
-<stop offset="1" stop-color="#FFDDF9" stop-opacity="0.47"/>
+<stop stopColor="#FD22D9"/>
+<stop offset="1" stopColor="#FFDDF9" stop-opacity="0.47"/>
 </radialGradient>
 <radialGradient id="paint6_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(350 160) rotate(-135) scale(258.996 182)">
-<stop offset="0.0989011" stop-color="#770064"/>
-<stop offset="1" stop-color="#510404" stop-opacity="0"/>
+<stop offset="0.0989011" stopColor="#770064"/>
+<stop offset="1" stopColor="#510404" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint7_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(350 160) rotate(-45) scale(258.996 182)">
-<stop offset="0.0989011" stop-color="#770064"/>
-<stop offset="1" stop-color="#510404" stop-opacity="0"/>
+<stop offset="0.0989011" stopColor="#770064"/>
+<stop offset="1" stopColor="#510404" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint8_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(350 160) scale(398.125 182)">
-<stop offset="0.0989011" stop-color="#770064"/>
-<stop offset="1" stop-color="#510404" stop-opacity="0"/>
+<stop offset="0.0989011" stopColor="#770064"/>
+<stop offset="1" stopColor="#510404" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint9_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(271 160) rotate(90) scale(182 182)">
-<stop offset="0.348958" stop-color="#FF8E8E"/>
-<stop offset="0.880208" stop-color="#FFC6F6" stop-opacity="0"/>
+<stop offset="0.348958" stopColor="#FF8E8E"/>
+<stop offset="0.880208" stopColor="#FFC6F6" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint10_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(461 160) rotate(90) scale(182 182)">
-<stop offset="0.348958" stop-color="#FF8E8E"/>
-<stop offset="0.880208" stop-color="#FFC6F6" stop-opacity="0"/>
+<stop offset="0.348958" stopColor="#FF8E8E"/>
+<stop offset="0.880208" stopColor="#FFC6F6" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint11_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(350 160) rotate(90) scale(182 182)">
-<stop offset="0.0989011" stop-color="#770064"/>
-<stop offset="1" stop-color="#510404" stop-opacity="0"/>
+<stop offset="0.0989011" stopColor="#770064"/>
+<stop offset="1" stopColor="#510404" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint12_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(429 160) rotate(90) scale(182 182)">
-<stop offset="0.348958" stop-color="#FF8E8E"/>
-<stop offset="0.880208" stop-color="#FFC6F6" stop-opacity="0"/>
+<stop offset="0.348958" stopColor="#FF8E8E"/>
+<stop offset="0.880208" stopColor="#FFC6F6" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint13_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(239 160) rotate(90) scale(182 182)">
-<stop offset="0.348958" stop-color="#FF8E8E"/>
-<stop offset="0.880208" stop-color="#FFC6F6" stop-opacity="0"/>
+<stop offset="0.348958" stopColor="#FF8E8E"/>
+<stop offset="0.880208" stopColor="#FFC6F6" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint14_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(350 50) scale(398.125 182)">
-<stop offset="0.348958" stop-color="#FF8E8E"/>
-<stop offset="0.880208" stop-color="#FFC6F6" stop-opacity="0"/>
+<stop offset="0.348958" stopColor="#FF8E8E"/>
+<stop offset="0.880208" stopColor="#FFC6F6" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint15_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(350 82) scale(398.125 182)">
-<stop offset="0.348958" stop-color="#FF8E8E"/>
-<stop offset="0.880208" stop-color="#FFC6F6" stop-opacity="0"/>
+<stop offset="0.348958" stopColor="#FF8E8E"/>
+<stop offset="0.880208" stopColor="#FFC6F6" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint16_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(350 271) scale(398.125 182)">
-<stop offset="0.348958" stop-color="#FF8E8E"/>
-<stop offset="0.880208" stop-color="#FFC6F6" stop-opacity="0"/>
+<stop offset="0.348958" stopColor="#FF8E8E"/>
+<stop offset="0.880208" stopColor="#FFC6F6" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint17_radial_39_1471" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(350 239) scale(398.125 182)">
-<stop offset="0.348958" stop-color="#FF8E8E"/>
-<stop offset="0.880208" stop-color="#FFC6F6" stop-opacity="0"/>
+<stop offset="0.348958" stopColor="#FF8E8E"/>
+<stop offset="0.880208" stopColor="#FFC6F6" stop-opacity="0"/>
 </radialGradient>
 <clipPath id="clip0_39_1471">
 <rect width="700" height="320" rx="16" fill="white"/>
