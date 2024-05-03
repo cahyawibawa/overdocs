@@ -13,7 +13,7 @@ const statusSchema = z.object({ status: statusEnum })
 
 const dictionary = {
   operational: {
-    label: 'Alive',
+    label: 'Operational',
     color: 'bg-green-500',
   },
   degraded_performance: {
@@ -60,15 +60,13 @@ export async function StatusWidget({ slug }: { slug: string }) {
       rel="noreferrer"
     >
       {label}
-      <span className="relative flex h-2 w-2">
+      <span className="relative flex size-2">
         {parsed.data.status === 'operational' ? (
           <span
-            className={`absolute inline-flex h-full w-full animate-ping rounded-full ${color} opacity-75 duration-1000`}
+            className={`absolute inline-flex size-full animate-ping rounded-full ${color} opacity-75 duration-1000`}
           />
         ) : null}
-        <span
-          className={`relative inline-flex h-2 w-2 rounded-full ${color}`}
-        />
+        <span className={`relative inline-flex size-2 rounded-full ${color}`} />
       </span>
     </a>
   )

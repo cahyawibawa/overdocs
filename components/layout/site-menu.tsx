@@ -1,8 +1,8 @@
 'use client'
 
-import { cn } from '@/lib/utils'
+import { marketingPagesConfig } from '@/config/pages'
+import { socialsConfig } from '@/config/socials'
 import { Menu } from 'lucide-react'
-import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
 import * as React from 'react'
 import { Button } from '../ui/button'
@@ -13,12 +13,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '../ui/sheet'
-
-const pages = [
-  // { href: '/changelog', title: 'Changelog' },
-  { href: '/blog', title: 'Blog' },
-  { href: '/https://overdocs.mintlify.app/introduction', title: 'Docs' },
-]
+import { AppLink } from './app-link'
+import { SocialIconButton } from './social-icon-button'
 
 export function SiteMenu() {
   const [open, setOpen] = React.useState(false)
@@ -33,31 +29,42 @@ export function SiteMenu() {
     <Sheet open={open} onOpenChange={(value) => setOpen(value)}>
       <SheetTrigger asChild>
         <Button size="icon" variant="outline" className="rounded-full">
-          <Menu className="h-6 w-6" />
+          <Menu className="size-6" />
         </Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent side="top" className="flex flex-col">
         <SheetHeader>
-          <SheetTitle className="text-left">Navigation</SheetTitle>
+          <SheetTitle className="ml-2 text-left">Menu</SheetTitle>
         </SheetHeader>
-        <ul className="mt-4 grid gap-1">
-          {pages.map(({ href, title }) => {
-            const isActive = pathname?.startsWith(href)
-            return (
-              <li key="title" className="w-full">
-                <Link
-                  href={href}
-                  className={cn(
-                    'group flex w-full min-w-[200px] items-center rounded-md border border-transparent px-3 py-1 text-muted-foreground hover:bg-muted/50 hover:text-foreground',
-                    isActive && 'border-border bg-muted/50 text-foreground'
-                  )}
-                >
-                  {title}
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
+        <div className="flex flex-1 flex-col justify-between gap-4">
+          <ul className="grid gap-1">
+            {marketingPagesConfig.map(({ href, title }) => {
+              const isExternal = href.startsWith('http')
+              const externalProps = isExternal ? { target: '_blank' } : {}
+              const isActive = pathname.startsWith(href)
+              return (
+                <li key={href} className="w-full">
+                  <AppLink
+                    href={href}
+                    label={title}
+                    active={isActive}
+                    {...externalProps}
+                  />
+                </li>
+              )
+            })}
+          </ul>
+          <div className="flex justify-between gap-2">
+            <ul className="flex flex-wrap gap-2">
+              {socialsConfig.map((props, i) => (
+                <li key={i}>
+                  <SocialIconButton {...props} />
+                </li>
+              ))}
+            </ul>
+            {/* <LoginButton /> */}
+          </div>
+        </div>
       </SheetContent>
     </Sheet>
   )

@@ -1,29 +1,22 @@
-'use client'
-
 import { siteConfig } from '@/config/site'
+import { validateRequest } from '@/lib/lucia'
 import { cn } from '@/lib/utils'
-import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '../ui/button'
 import { SiteMenu } from './site-menu'
+import { UserAccountNav } from './user-account-nav'
 
-interface Props {
-  className?: string
-}
-
-export function SiteHeader({ className }: Props) {
-  //   const { isSignedIn } = useUser();
+export const SiteHeader = async () => {
+  const { user } = await validateRequest()
 
   return (
-    <header
-      className={cn('grid w-full grid-cols-2 gap-2 md:grid-cols-5', className)}
-    >
+    <header className={cn('grid w-full grid-cols-2 gap-2 md:grid-cols-5')}>
       <div className="flex items-center md:col-span-1">
         <Link
           href="/"
           className="font-cal text-muted-foreground hover:text-foreground"
         >
-          OverDocs
+          {siteConfig.name}
         </Link>
       </div>
       <div className="hidden items-center justify-center rounded-full border md:col-span-3 md:flex md:gap-3">
@@ -39,7 +32,7 @@ export function SiteHeader({ className }: Props) {
         <Button variant="link" asChild className="text-foreground md:mr-3">
           <Link href={siteConfig.links.docs}>
             Docs
-            <ArrowUpRight className="ml-1 h-4 w-4 shrink-0" />
+            {/* <ArrowUpRight className="ml-1 h-4 w-4 shrink-0" /> */}
           </Link>
         </Button>
       </div>
@@ -47,9 +40,13 @@ export function SiteHeader({ className }: Props) {
         <div className="block md:hidden">
           <SiteMenu />
         </div>
-        <Button asChild className=" rounded-full">
-          <Link href={siteConfig.links.docs}>Sign In</Link>
-        </Button>
+        {user ? (
+          <UserAccountNav email={user.email} />
+        ) : (
+          <Button className="rounded-full">
+            <Link href="/signin">Sign Up</Link>
+          </Button>
+        )}
       </div>
     </header>
   )
