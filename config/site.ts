@@ -1,22 +1,23 @@
 export const siteConfig = {
-  name: 'OverDocs',
-  url: '',
-  ogImage: '',
-  description: 'A website for the overdocs project',
+  name: 'Overdocs',
+  url: 'https://overdocs.vercel.app/',
+  ogImage: 'https://overdocs.vercel.app/opengraph-image.png',
+  description: 'An SaaS boilerplate with Next.js 14 and Lucia Auth.',
   links: {
-    twitter: '',
     github: 'https://github.com/cahyawibawa/overdocs',
-    cal: '',
-    discord: '',
     docs: 'https://overdocs.mintlify.app',
   },
   keywords: [
-    'Nextjs',
-    'Typescript',
-    'Tailwindcss',
-    'React',
-    'Overdocs',
-    'Documentation',
+    'Next.js',
+    'Drizzle',
+    'Neon',
+    'Lucia',
+    'shadcn ui',
+    'Resend',
+    'Stripe',
+    'Mintlify',
+    'SaaS',
+    'Boilerplate'
   ],
 };
 

@@ -14,7 +14,7 @@ export const socialsConfig: Social[] = [
   },
   {
     title: "GitHub",
-    href: "/github",
+    href: "https://github.com/cahyawibawa/overdocs",
     icon: "github",
   },
   {

@@ -1,5 +1,14 @@
 import type { ValidIcon } from "@/components/icons";
-
+import {
+  Drizzle,
+  LuciaAuth,
+  NextjsDark,
+  Mintlify,
+  ShadcnUi,
+  TailwindCss,
+  StripeLogo,
+  ReactEmail,
+} from ".././components/section/feature-icons";
 export type Feature = {
   icon: ValidIcon;
   title: string;
@@ -104,3 +113,57 @@ export const cardConfig = {
     ],
   },
 } satisfies Record<string, Feature>;
+
+export const features = [
+  {
+    name: "Next.js",
+    description: "The React Framework for Production",
+    logo: NextjsDark,
+  },
+  // {
+  //   name: "React.js",
+  //   description: "Server and client components.",
+  //   logo: ReactJs,
+  // },
+  {
+    name: "Authentication",
+    description: "Credential authentication with Lucia (email validation)",
+    logo: LuciaAuth,
+  },
+  {
+    name: "Database",
+    description: "Drizzle ORM with Neon serverless Postgres",
+    logo: Drizzle,
+  },
+  {
+    name: "Mintlify",
+    description: "Modern standard for public facing documentation",
+    logo: Mintlify,
+  },
+  // {
+  //   name: "Markdown",
+  //   description: "Markdown for building content",
+  //   logo: MarkdownIcon,
+  // },
+  {
+    name: "Tailwindcss",
+    description: "Utility-first CSS framework for rapid UI development",
+    logo: TailwindCss,
+  },
+  {
+    name: "ui/shadcn",
+    description: "A set of beautifully designed UI components for React",
+    logo: ShadcnUi,
+  },
+  {
+    name: "React Email",
+    description: "Versatile email framework for efficient and flexible email development",
+    logo: ReactEmail,
+  },
+  {
+    name: "Subscription",
+    description: "Subscription with stripe",
+    logo: StripeLogo,
+  },
+];
+
