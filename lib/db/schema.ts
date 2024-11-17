@@ -1,48 +1,49 @@
-import { boolean, pgTable, text, timestamp } from "drizzle-orm/pg-core"
+import {
+	boolean,
+	integer,
+	pgTable,
+	text,
+	timestamp,
+} from "drizzle-orm/pg-core";
 
-export const userTable = pgTable("user", {
-  id: text("id").primaryKey(),
-  hashedPassword: text("hashed_password"),
-  email: text("email").unique(),
-  isEmailVerified: boolean("is_email_verified").notNull().default(false),
-  profilePictureUrl: text("profile_picture_url"),
-  name: text("name"),
-})
+export const user = pgTable("user", {
+	id: text("id").primaryKey(),
+	name: text("name").notNull(),
+	email: text("email").notNull().unique(),
+	emailVerified: boolean("emailVerified").notNull(),
+	image: text("image"),
+	createdAt: timestamp("createdAt").notNull(),
+	updatedAt: timestamp("updatedAt").notNull(),
+});
 
-export const oauthAccountTable = pgTable("oauth_account", {
-  id: text("id").primaryKey(),
-  userId: text("user_id")
-    .notNull()
-    .references(() => userTable.id),
-  provider: text("provider").notNull(), // google, github
-  providerUserId: text("provider_user_id").notNull(),
-  accessToken: text("access_token").notNull(),
-  refreshToken: text("refresh_token"),
-  expiresAt: timestamp("expires_at", {
-    withTimezone: true,
-    mode: "date",
-  }),
-})
+export const session = pgTable("session", {
+	id: text("id").primaryKey(),
+	expiresAt: timestamp("expiresAt").notNull(),
+	ipAddress: text("ipAddress"),
+	userAgent: text("userAgent"),
+	userId: text("userId")
+		.notNull()
+		.references(() => user.id),
+});
 
-export const emailVerificationTable = pgTable("email_verification", {
-  id: text("id").primaryKey(),
-  userId: text("user_id")
-    .notNull()
-    .references(() => userTable.id),
-  code: text("code").notNull(),
-  sentAt: timestamp("sent_at", {
-    withTimezone: true,
-    mode: "date",
-  }).notNull(),
-})
+export const account = pgTable("account", {
+	id: text("id").primaryKey(),
+	accountId: text("accountId").notNull(),
+	providerId: text("providerId").notNull(),
+	userId: text("userId")
+		.notNull()
+		.references(() => user.id),
+	accessToken: text("accessToken"),
+	refreshToken: text("refreshToken"),
+	idToken: text("idToken"),
+	expiresAt: timestamp("expiresAt"),
+	password: text("password"),
+});
 
-export const sessionTable = pgTable("session", {
-  id: text("id").primaryKey(),
-  userId: text("user_id")
-    .notNull()
-    .references(() => userTable.id),
-  expiresAt: timestamp("expires_at", {
-    withTimezone: true,
-    mode: "date",
-  }).notNull(),
-})
+export const verification = pgTable("verification", {
+	id: text("id").primaryKey(),
+	identifier: text("identifier").notNull(),
+	value: text("value").notNull(),
+	expiresAt: timestamp("expiresAt").notNull(),
+	createdAt: timestamp("createdAt"),
+});
