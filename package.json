@@ -50,6 +50,7 @@
 		"tailwind-merge": "^1.14.0",
 		"tailwindcss-animate": "^1.0.7",
 		"unist-util-visit": "^5.0.0",
+		"use-scramble": "^2.2.15",
 		"usehooks-ts": "^3.1.0",
 		"zod": "^3.22.4"
 	},
