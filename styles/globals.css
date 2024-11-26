@@ -34,6 +34,14 @@
 		--color-background-light: transparent;
 		--color-background-dark: transparent;
 		--text-gray: #e1e1e1;
+		--sidebar-background: 0 0% 98%;
+		--sidebar-foreground: 240 5.3% 26.1%;
+		--sidebar-primary: 240 5.9% 10%;
+		--sidebar-primary-foreground: 0 0% 98%;
+		--sidebar-accent: 240 4.8% 95.9%;
+		--sidebar-accent-foreground: 240 5.9% 10%;
+		--sidebar-border: 220 13% 91%;
+		--sidebar-ring: 217.2 91.2% 59.8%;
 	}
 	.dark {
 		--background: 0 0% 3.9%;
@@ -60,31 +68,33 @@
 		--chart-3: 30 80% 55%;
 		--chart-4: 280 65% 60%;
 		--chart-5: 340 75% 55%;
+		--sidebar-background: 240 5.9% 10%;
+		--sidebar-foreground: 240 4.8% 95.9%;
+		--sidebar-primary: 224.3 76.3% 48%;
+		--sidebar-primary-foreground: 0 0% 100%;
+		--sidebar-accent: 240 3.7% 15.9%;
+		--sidebar-accent-foreground: 240 4.8% 95.9%;
+		--sidebar-border: 240 3.7% 15.9%;
+		--sidebar-ring: 217.2 91.2% 59.8%;
 	}
 }
 
 @layer base {
 	* {
-		--webkit-font-smoothing: antialiased;
-		--moz-osx-font-smoothing: grayscale;
-
-		font-variant-ligatures: common-ligatures;
-		text-wrap: pretty;
-		text-rendering: optimizelegibility;
+		@apply border-border;
 	}
-
-	/* ::marker {
-		unicode-bidi: isolate;
-		font-variant-numeric: tabular-nums;
-		text-transform: none;
-		text-indent: 0px !important;
-		text-align: start !important;
-		text-align-last: start !important;
-	} */
 
 	html {
 		@apply scroll-smooth;
-		@apply bg-background text-foreground;
+	}
+
+	body {
+		@apply bg-background text-foreground overscroll-none;
+		/* font-feature-settings: "rlig" 1, "calt" 1; */
+		font-synthesis-weight: none;
+		text-rendering: optimizeLegibility;
+		font-variant-ligatures: common-ligatures;
+		text-wrap: pretty;
 	}
 
 	html {
@@ -119,37 +129,14 @@
 		text-indent: -2px;
 		font-weight: 700;
 	}
-	a {
-		text-decoration-line: none;
-		color: #47b7f8;
-	}
-	p a,
-	dl a,
-	dd a,
-	h1 a,
-	h2 a,
-	h3 a,
-	h4 a,
-	h5 a,
-	h6 a,
-	strong a,
-	em a,
-	blockquote a,
-	figure a,
-	table a {
-		text-decoration-color: #1e9de7;
-	}
-	ul:not(nav ul) {
-		padding-inline-start: 1em;
-		list-style-type: "* ";
+	h2 {
+		text-decoration-line: underline;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 4px;
+		text-decoration-color: #818181;
 	}
 	ol,
 	ul,
-	menu {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
 	nav {
 		display: block;
 		unicode-bidi: isolate;
@@ -163,6 +150,12 @@
 	}
 }
 
+@media (min-width: 640px) {
+	.sm\:col-span-2 {
+		grid-column: span 2 / span 2;
+	}
+}
+
 @media (min-width: 768px) {
 	.md\:flex {
 		display: flex;
@@ -170,14 +163,67 @@
 }
 
 @media (min-width: 1024px) {
+	.lg\:col-span-1 {
+		grid-column: span 1 / span 1;
+	}
+}
+
+@media (min-width: 1024px) {
+	.lg\:px-12 {
+		padding-left: 96px;
+		padding-right: 96px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.lg\:grid-cols-5 {
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+	}
+}
+@media (min-width: 1024px) {
 	.lg\:row-start-1 {
 		grid-row-start: 1;
+	}
+}
+
+@media (min-width: 1024px) {
+	.lg\:mx-7 {
+		margin-left: 56px;
+		margin-right: 56px;
+	}
+}
+
+@media (min-width: 640px) {
+	.sm\:dashed-box-l-t {
+		background-size: 1px 100%, 100% 1px, 0 0, 0 0;
+	}
+}
+
+@media (min-width: 1024px) {
+	.lg\:dashed-box-y-l {
+		background-size: 1px 100%, 100% 1px, 0 0, 100% 1px;
 	}
 }
 
 /* Add a .preload class to prevent transitions during page load */
 .preload * {
 	transition: none !important;
+}
+
+.-indent-1ch {
+	text-indent: -1ch;
+}
+
+.pl-1ch {
+	padding-left: 1ch;
+}
+
+.dashed-box-x-t {
+	background-size: 1px 100%, 100% 1px, 1px 100%, 0 0;
+}
+
+.dashed-box-x-b {
+	background-size: 1px 100%, 0 0, 1px 100%, 100% 1px;
 }
 
 .dashed-box {
