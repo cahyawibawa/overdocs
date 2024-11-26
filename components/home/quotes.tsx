@@ -6,18 +6,32 @@ import { useSwipeable } from "react-swipeable";
 
 const quotes = [
 	{
-		text: "In character, in manner, in style, in all things, the supreme excellence is simplicity.",
-		author: "Henry Wadsworth Longfellow",
-		title: "",
-		company: "",
-		url: "",
-	},
-	{
 		text: "Instead of trying to search for mastery to build things, i was just like building things with the knowledge that i had at the time, putting out of the door and then progressively moving towards mastery.",
 		author: "Mariana Castilho",
 		title: "design engineer",
 		company: "pierre",
 		url: "https://pierre.com",
+	},
+	{
+		text: "My philosophy is that not only are you responsible for your life, but doing the best at this moment puts you in the best place for the next moment.",
+		author: "Oprah Winfrey",
+		title: "",
+		company: "",
+		url: "",
+	},
+	{
+		text: "There are two kinds of people, those who do the work and those who take the credit. Try to be in the first group; there is less competition there.",
+		author: "Indira Gandhi",
+		title: "",
+		company: "",
+		url: "",
+	},
+	{
+		text: "You cannot define a person on just one thing. You can’t just forget all these wonderful and good things that a person has done because one thing didn’t come off the way you thought it should come off.",
+		author: "Aretha Franklin",
+		title: "",
+		company: "",
+		url: "",
 	},
 ];
 
@@ -90,7 +104,7 @@ export const Quotes = () => {
 	});
 
 	return (
-		<div className="pt-5 pb-10">
+		<div className="pt-5">
 			<div className="flex items-center gap-6">
 				<div
 					{...handlers}
@@ -122,6 +136,14 @@ export const Quotes = () => {
 						</p>
 					</blockquote>
 				</div>
+				{/* <button
+					onClick={() =>
+						setCurrentIndex((prevIndex) => (prevIndex + 1) % quotes.length)
+					}
+					className="hidden whitespace-nowrap rounded-lg border border-gray-200 p-2 text-sm transition-colors hover:border-gray-300 md:block dark:border-gray-700 dark:hover:border-gray-600"
+				>
+					[n] next
+				</button> */}
 			</div>
 		</div>
 	);

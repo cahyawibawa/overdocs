@@ -1,8 +1,23 @@
 import { cn } from "@/lib/utils";
-import type { SVGProps } from "react";
+
+export type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
-	nextJS: (props?: SVGProps<any>) => (
+	spinner: (props: IconProps) => (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			{...props}
+		>
+			<path d="M21 12a9 9 0 1 1-6.219-8.56" />
+		</svg>
+	),
+	nextJS: (props?: IconProps) => (
 		<svg
 			className={props?.className}
 			width="180"
@@ -69,7 +84,7 @@ export const Icons = {
 			</defs>
 		</svg>
 	),
-	neon: (props?: SVGProps<any>) => (
+	neon: (props?: IconProps) => (
 		<svg
 			className={props?.className}
 			viewBox="0 0 256 256"
@@ -107,7 +122,7 @@ export const Icons = {
 			/>
 		</svg>
 	),
-	vercel: (props?: SVGProps<any>) => (
+	vercel: (props?: IconProps) => (
 		<svg
 			className={props?.className}
 			viewBox="0 0 256 222"
@@ -119,7 +134,7 @@ export const Icons = {
 			<path className="fill-black dark:fill-white" d="m128 0 128 221.705H0z" />
 		</svg>
 	),
-	betterAuth: (props?: SVGProps<any>) => (
+	betterAuth: (props?: IconProps) => (
 		<svg
 			width="60"
 			height="45"
@@ -136,7 +151,7 @@ export const Icons = {
 			/>
 		</svg>
 	),
-	react: (props?: SVGProps<any>) => (
+	react: (props?: IconProps) => (
 		<svg
 			className={props?.className}
 			xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +167,7 @@ export const Icons = {
 			></path>
 		</svg>
 	),
-	hono: (props?: SVGProps<any>) => (
+	hono: (props?: IconProps) => (
 		<svg
 			className={cn(props?.className)}
 			xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +186,7 @@ export const Icons = {
 			></path>
 		</svg>
 	),
-	astro: (props?: SVGProps<any>) => (
+	astro: (props?: IconProps) => (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			{...props}
@@ -185,7 +200,7 @@ export const Icons = {
 			></path>
 		</svg>
 	),
-	shadcn: (props?: SVGProps<any>) => (
+	shadcn: (props?: IconProps) => (
 		<svg
 			className={props?.className}
 			xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +252,7 @@ export const Icons = {
 			</g>
 		</svg>
 	),
-	resend: (props?: SVGProps<any>) => (
+	resend: (props?: IconProps) => (
 		<svg
 			width="600"
 			height="600"
@@ -252,7 +267,7 @@ export const Icons = {
 			/>
 		</svg>
 	),
-	stripe: (props?: SVGProps<any>) => (
+	stripe: (props?: IconProps) => (
 		<svg
 			className="h-[30px] w-auto"
 			viewBox="0 0 60 25"
@@ -267,7 +282,7 @@ export const Icons = {
 			></path>
 		</svg>
 	),
-	drizzle: (props?: SVGProps<any>) => (
+	drizzle: (props?: IconProps) => (
 		<svg
 			className={props?.className}
 			viewBox="0 0 160 160"
@@ -303,7 +318,7 @@ export const Icons = {
 			></rect>
 		</svg>
 	),
-	t3stack: (props?: SVGProps<any>) => (
+	t3stack: (props?: IconProps) => (
 		<svg
 			className={props?.className}
 			width="258"
@@ -334,7 +349,7 @@ export const Icons = {
 			/>
 		</svg>
 	),
-	biomejs: (props?: SVGProps<any>) => (
+	biomejs: (props?: IconProps) => (
 		<svg
 			className={props?.className}
 			viewBox="0 0 64 55.425"
@@ -459,7 +474,7 @@ export const Icons = {
 			/>
 		</svg>
 	),
-	tanstack: (props?: SVGProps<any>) => (
+	tanstack: (props?: IconProps) => (
 		<svg
 			className={cn(props?.className)}
 			xmlns="http://www.w3.org/2000/svg"
@@ -592,7 +607,7 @@ export const Icons = {
 			</g>
 		</svg>
 	),
-	expo: (props?: SVGProps<any>) => (
+	expo: (props?: IconProps) => (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="1.2em"
@@ -606,7 +621,7 @@ export const Icons = {
 			></path>
 		</svg>
 	),
-	x: (props?: SVGProps<any>) => (
+	x: (props?: IconProps) => (
 		<svg
 			{...props}
 			width={30}
@@ -620,7 +635,7 @@ export const Icons = {
 			<path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
 		</svg>
 	),
-	linkedIn: (props?: SVGProps<any>) => (
+	linkedIn: (props?: IconProps) => (
 		<svg
 			{...props}
 			width={30}
