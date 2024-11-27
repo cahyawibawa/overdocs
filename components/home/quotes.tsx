@@ -136,14 +136,14 @@ export const Quotes = () => {
 						</p>
 					</blockquote>
 				</div>
-				{/* <button
+				<button
 					onClick={() =>
 						setCurrentIndex((prevIndex) => (prevIndex + 1) % quotes.length)
 					}
-					className="hidden whitespace-nowrap rounded-lg border border-gray-200 p-2 text-sm transition-colors hover:border-gray-300 md:block dark:border-gray-700 dark:hover:border-gray-600"
+					className="hidden whitespace-nowrap rounded-lg border border-muted p-2 text-sm transition-colors hover:border-dashed md:block "
 				>
 					[n] next
-				</button> */}
+				</button>
 			</div>
 		</div>
 	);
