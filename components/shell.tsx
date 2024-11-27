@@ -3,7 +3,7 @@ import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-const shellVariants = cva("grid items-center gap-8 pb-8 pt-6 lg:py-6", {
+const shellVariants = cva("grid my-6 items-center px-5 lg:px-12", {
 	variants: {
 		variant: {
 			default: "container",

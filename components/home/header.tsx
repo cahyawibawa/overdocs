@@ -35,7 +35,7 @@ export default function Header() {
 	};
 
 	return (
-		<header className="relative mt-8 mb-6 bg-background">
+		<header className="relative mt-4 mb-6 bg-background">
 			<div className="grid w-full grid-cols-[auto_1fr] grid-rows-1 md:grid-rows-2 md:gap-3 lg:grid-rows-1">
 				<Link
 					aria-label="Home"
@@ -153,7 +153,7 @@ export default function Header() {
 					</nav>
 				</div>
 			</div>
-			<details className="md:hidden">
+			<details className="mt-6 md:hidden">
 				<summary className="font-semibold text-primary">Navigation</summary>
 				<nav className="dashed-box mt-1 p-6">
 					<ul className="flex flex-wrap gap-x-1 md:flex-nowrap">

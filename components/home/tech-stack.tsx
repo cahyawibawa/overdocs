@@ -43,8 +43,8 @@ export const TechStack = () => {
 			status: null,
 		},
 		{
-			title: "T3 Stack",
-			icon: "t3stack",
+			title: "Drizzle ORM",
+			icon: "drizzleOrm",
 			description: "TypeScript ORM for SQL databases",
 			url: "https://orm.drizzle.team",
 			status: null,
@@ -167,8 +167,8 @@ export const TechStack = () => {
 	}, [hoveredIndex, windowWidth, techStack.length]);
 
 	return (
-		<div className="py-6">
-			<p>Powered by 0$ tech stack:</p>
+		<div className="py-1">
+			<p>Powered by robust tech stack:</p>
 			<div className="relative w-full">
 				<div className="absolute inset-0">{intersections}</div>
 				<div

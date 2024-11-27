@@ -1,11 +1,21 @@
+import { siteConfig } from "@/config/site";
+
 export const Hero = () => {
 	return (
-		<div className="flex flex-col gap-y-3">
+		<div className="mt-6 flex flex-col gap-y-3">
 			<div>
 				<h1 className="text-primary">The SaaS Starter You Need</h1>
 				<p>
 					Overdocs is a robust foundation for your product launch, built with
-					simplicity, scalability, and security in mind.
+					focus on{" "}
+					<a
+						data-discover="true"
+						href="#performance"
+						className="border-b border-dashed underline-offset-2 hover:underline"
+					>
+						performance
+					</a>
+					, scalability, and security in mind.
 				</p>{" "}
 				<p>
 					Deploy on{" "}
@@ -13,7 +23,7 @@ export const Hero = () => {
 						rel="noreferrer"
 						target="_blank"
 						className="border-b border-dashed underline-offset-2 hover:underline"
-						href="https://vercel.com"
+						href={siteConfig.links.deploy}
 					>
 						Vercel
 					</a>{" "}
@@ -22,7 +32,7 @@ export const Hero = () => {
 						rel="noreferrer"
 						target="_blank"
 						className="border-b border-dashed underline-offset-2 hover:underline"
-						href="https://github.com/cahyawibawa/overdocs"
+						href={siteConfig.links.github}
 					>
 						GitHub.
 					</a>
