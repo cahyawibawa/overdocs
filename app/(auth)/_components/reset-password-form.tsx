@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import type { z } from "zod";
@@ -9,6 +9,13 @@ import type { z } from "zod";
 import { Icons } from "@/components/icons";
 import { PasswordInput } from "@/components/password-input";
 import { Button } from "@/components/ui/button";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 import {
 	Form,
 	FormControl,
@@ -23,14 +30,11 @@ import { toast } from "sonner";
 
 type Inputs = z.infer<typeof resetPasswordSchema>;
 
-export function ResetPasswordForm({
-	params,
-}: {
-	params: { token: string };
-}) {
+export default function ResetPasswordForm() {
 	const [loading, setLoading] = React.useState(false);
 	const router = useRouter();
-	const token = params.token;
+	const searchParams = useSearchParams();
+	const token = searchParams.get("token");
 
 	const form = useForm<Inputs>({
 		resolver: zodResolver(resetPasswordSchema),
@@ -41,6 +45,13 @@ export function ResetPasswordForm({
 	});
 
 	async function onSubmit(data: Inputs) {
+		if (!token) {
+			toast.error(
+				"Invalid or missing reset token. Please request a new password reset.",
+			);
+			return;
+		}
+
 		setLoading(true);
 		try {
 			await authClient.resetPassword({
@@ -57,65 +68,68 @@ export function ResetPasswordForm({
 		}
 	}
 
+	if (!token) {
+		return (
+			<div>
+				Invalid or missing reset token. Please request a new password reset.
+			</div>
+		);
+	}
+
 	return (
-		<Form {...form}>
-			<form className="grid gap-4" onSubmit={form.handleSubmit(onSubmit)}>
-				{/* <FormField
-					control={form.control}
-					name="code"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Verification Code</FormLabel>
-							<FormControl>
-								<Input placeholder="123456" {...field} />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/> */}
-				<FormField
-					control={form.control}
-					name="password"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>New Password</FormLabel>
-							<FormControl>
-								<PasswordInput
-									placeholder="Enter your new password"
-									{...field}
-								/>
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<FormField
-					control={form.control}
-					name="confirmPassword"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Confirm New Password</FormLabel>
-							<FormControl>
-								<PasswordInput
-									placeholder="Confirm your new password"
-									{...field}
-								/>
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<Button className="mt-2" disabled={loading}>
-					{loading && (
-						<Icons.spinner
-							className="mr-2 size-4 animate-spin"
-							aria-hidden="true"
+		<Card>
+			<CardHeader className="space-y-1">
+				<CardTitle className="text-2xl">Reset password</CardTitle>
+				<CardDescription>Enter your new password below</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<Form {...form}>
+					<form className="grid gap-4" onSubmit={form.handleSubmit(onSubmit)}>
+						<FormField
+							control={form.control}
+							name="password"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>New Password</FormLabel>
+									<FormControl>
+										<PasswordInput
+											placeholder="Enter your new password"
+											{...field}
+										/>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
 						/>
-					)}
-					Reset Password
-					<span className="sr-only">Reset Password</span>
-				</Button>
-			</form>
-		</Form>
+						<FormField
+							control={form.control}
+							name="confirmPassword"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Confirm New Password</FormLabel>
+									<FormControl>
+										<PasswordInput
+											placeholder="Confirm your new password"
+											{...field}
+										/>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<Button className="mt-2" disabled={loading}>
+							{loading && (
+								<Icons.spinner
+									className="mr-2 size-4 animate-spin"
+									aria-hidden="true"
+								/>
+							)}
+							Reset Password
+							<span className="sr-only">Reset Password</span>
+						</Button>
+					</form>
+				</Form>
+			</CardContent>
+		</Card>
 	);
 }
