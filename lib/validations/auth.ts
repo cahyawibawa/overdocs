@@ -23,3 +23,24 @@ export const signInFormSchema = z.object({
 		.min(8, { message: "Password must be at least 8 characters long" })
 		.max(30, { message: "Password must be at most 30 characters long" }),
 });
+
+export const verifyEmailSchema = z.object({
+	code: z
+		.string()
+		.min(6, {
+			message: "Verification code must be 6 characters long",
+		})
+		.max(6),
+})
+
+
+export const resetPasswordSchema = z
+	.object({
+		password: signInFormSchema.shape.password,
+		confirmPassword: signInFormSchema.shape.password,
+		// code: verifyEmailSchema.shape.code.optional(),
+	})
+	.refine((data) => data.password === data.confirmPassword, {
+		message: "Passwords do not match",
+		path: ["confirmPassword"],
+	})

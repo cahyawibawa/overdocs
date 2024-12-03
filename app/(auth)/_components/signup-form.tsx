@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -25,6 +26,7 @@ type SignUpFormValues = z.infer<typeof signUpFormSchema>;
 
 export function SignUpForm() {
 	const [isLoading, setIsLoading] = useState(false);
+	const router = useRouter();
 
 	const form = useForm<SignUpFormValues>({
 		resolver: zodResolver(signUpFormSchema),
@@ -47,16 +49,36 @@ export function SignUpForm() {
 
 		setIsLoading(true);
 		try {
-			await signUp.email({
+			const result = await signUp.email({
 				name: values.name,
 				email: values.email,
 				password: values.password,
 				callbackURL: "/dashboard",
 			});
-			form.reset();
-			toast.success("Account created successfully");
-		} catch (error) {
-			toast.error("Failed to create account. Please try again.");
+
+			if (result.error) {
+				if (result.error.message?.includes("email already exists")) {
+					form.setError("email", {
+						type: "manual",
+						message: "This email is already in use. Please try another one.",
+					});
+					toast.error(
+						"Email already in use. Please use a different email address.",
+					);
+				} else {
+					throw new Error(result.error.message);
+				}
+			} else {
+				form.reset();
+				toast.success(
+					"Account created successfully. Please check your email to verify your account.",
+				);
+				router.push("/signin");
+			}
+		} catch (error: any) {
+			toast.error(
+				error.message || "Failed to create account. Please try again.",
+			);
 		} finally {
 			setIsLoading(false);
 		}
