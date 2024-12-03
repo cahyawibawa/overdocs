@@ -48,7 +48,7 @@ export default function Header() {
 					{data?.session ? (
 						<div className="flex items-center gap-4">
 							<div className="flex items-center gap-1">
-								<span className="font-semibold text-orange-600 hover:text-primary">
+								<span className="font-semibold text-blue-600 hover:text-primary">
 									<Link href="/dashboard">Dashboard</Link>
 								</span>
 							</div>
@@ -107,7 +107,7 @@ export default function Header() {
 					) : (
 						<div className="flex items-center gap-1">
 							<div className="flex items-center gap-1">
-								<span className="font-semibold text-primary hover:text-orange-600">
+								<span className="font-semibold text-primary hover:text-blue-600">
 									<Link href="/signin">Sign in</Link>
 								</span>
 							</div>
@@ -116,7 +116,7 @@ export default function Header() {
 								className="mx-2 inline-block h-4 align-middle"
 							/>
 							<div className="flex items-center gap-1">
-								<span className="font-semibold text-orange-600">
+								<span className="font-semibold text-blue-600">
 									<Link href="/signup">Get started</Link>
 								</span>
 							</div>
@@ -161,7 +161,7 @@ export default function Header() {
 							<li key={item.label}>
 								<Link
 									href={item.href}
-									className="font-semibold text-gray-200 transition hover:text-foreground"
+									className="font-semibold text-primary transition hover:text-foreground"
 								>
 									{item.label}
 								</Link>

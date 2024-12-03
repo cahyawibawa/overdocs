@@ -11,7 +11,7 @@ export const Hero = () => {
 					<a
 						data-discover="true"
 						href="#performance"
-						className="border-b border-dashed underline-offset-2 hover:underline"
+						className="border-b border-dashed text-blue-600 underline-offset-2 hover:underline"
 					>
 						performance
 					</a>
@@ -22,7 +22,7 @@ export const Hero = () => {
 					<a
 						rel="noreferrer"
 						target="_blank"
-						className="border-b border-dashed underline-offset-2 hover:underline"
+						className="border-b border-dashed text-blue-600 underline-offset-2 hover:underline"
 						href={siteConfig.links.deploy}
 					>
 						Vercel
@@ -31,7 +31,7 @@ export const Hero = () => {
 					<a
 						rel="noreferrer"
 						target="_blank"
-						className="border-b border-dashed underline-offset-2 hover:underline"
+						className="border-b border-dashed text-blue-600 underline-offset-2 hover:underline"
 						href={siteConfig.links.github}
 					>
 						GitHub.
