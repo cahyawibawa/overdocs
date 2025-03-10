@@ -19,7 +19,7 @@ export const auth = betterAuth({
 		sendResetPassword: async ({ user, url }) => {
 			try {
 				await resend.emails.send({
-					from: "no-reply@cahyawibawa.dev",
+					from: "overdocs <onboarding@resend.dev>",
 					to: user.email,
 					subject: "Reset Your Password",
 					react: ResetPasswordEmail({ url }),
@@ -29,7 +29,7 @@ export const auth = betterAuth({
 				console.error("Failed to send reset password email:", error);
 			}
 		},
-		plugins: [nextCookies(),],
+		plugins: [nextCookies()],
 	},
 	emailVerification: {
 		autoSignInAfterVerification: true,
@@ -37,7 +37,7 @@ export const auth = betterAuth({
 		sendVerificationEmail: async ({ user, url }) => {
 			try {
 				await resend.emails.send({
-					from: "no-reply@cahyawibawa.dev",
+					from: "overdocs <onboarding@resend.dev>",
 					to: user.email,
 					subject: "Verify Your Email",
 					react: VerificationEmail({ url }),
@@ -77,4 +77,3 @@ export const getSession = cache(async () => {
 		headers: await headers(),
 	});
 });
-
