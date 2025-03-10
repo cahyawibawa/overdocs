@@ -1,14 +1,13 @@
 "use client";
 
+import { Header } from "@/components/section//header";
+import { Content } from "@/components/section/content";
+import { Footer } from "@/components/section/footer";
+import { Hero } from "@/components/section/hero";
+import { PricingTable } from "@/components/section/pricing";
+import { Quotes } from "@/components/section/quotes";
+import { TechStack } from "@/components/section/tech-stack";
 import { Shell } from "@/components/shell";
-import GridBall from "../grid-ball";
-import { Content } from "./content";
-import Footer from "./footer";
-import { Header } from "./header";
-import { Hero } from "./hero";
-import { PricingTable } from "./pricing";
-import { Quotes } from "./quotes";
-import { TechStack } from "./tech-stack";
 
 export default function HomePage() {
 	return (

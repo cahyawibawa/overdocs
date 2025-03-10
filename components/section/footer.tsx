@@ -25,7 +25,7 @@ function FooterLink({ href, children, external }: FooterLinkProps) {
 	);
 }
 
-export default function Footer() {
+export function Footer() {
 	return (
 		<footer className="pt-12">
 			<nav className="grid grid-cols-1 text-left sm:grid-cols-2 lg:grid-cols-5">
