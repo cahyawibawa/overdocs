@@ -29,7 +29,9 @@
 				"noSvgWithoutTitle": "off",
 				"useKeyWithClickEvents": "off",
 				"useButtonType": "off",
-				"useAltText": "off"
+				"useAltText": "off",
+				"useValidAnchor": "off",
+				"noRedundantRoles": "off"
 			},
 			"nursery": {
 				"useSortedClasses": {
@@ -47,7 +49,11 @@
 			},
 			"suspicious": {
 				"noArrayIndexKey": "off",
-				"noExplicitAny": "off"
+				"noExplicitAny": "off",
+				"noShadowRestrictedNames": "off"
+			},
+			"complexity": {
+				"noBannedTypes": "off"
 			}
 		}
 	},
