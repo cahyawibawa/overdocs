@@ -3,10 +3,11 @@ import type * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-const shellVariants = cva("grid my-6 items-center px-5 lg:px-12", {
+const shellVariants = cva("grid my-6 items-center px-4 xl:px-6", {
 	variants: {
 		variant: {
 			default: "container",
+			home: "container-wrapper",
 			sidebar: "",
 			centered: "container flex h-dvh max-w-2xl flex-col justify-center",
 			markdown: "container max-w-3xl py-8 md:py-10",
