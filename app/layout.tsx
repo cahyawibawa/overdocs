@@ -1,18 +1,28 @@
-import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { ThemeProvider } from "@/components/theme-provider";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist } from "next/font/google";
 import LocalFont from "next/font/local";
 import { Toaster } from "sonner";
-import "@/styles/globals.css";
+
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({
+import "./globals.css";
+
+const geist = Geist({
+	variable: "--font-geist",
 	subsets: ["latin"],
-	display: "swap",
-	variable: "--font-inter",
 });
+
+const serverMono = LocalFont({
+	src: "../fonts/ServerMono-Regular.otf",
+	variable: "--font-server-mono",
+});
+
+const META_THEME_COLORS = {
+	light: "#ffffff",
+	dark: "#09090b",
+};
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteConfig.url),
@@ -25,6 +35,7 @@ export const metadata: Metadata = {
 	authors: [
 		{
 			name: "cahya",
+			url: "https://cahyawibawa.com",
 		},
 	],
 	creator: "cahya",
@@ -43,17 +54,12 @@ export const metadata: Metadata = {
 		images: [siteConfig.ogImage],
 		creator: "@kyuotaka",
 	},
-	icons: {
-		icon: "/favicon.ico",
-		shortcut: "/favicon-16x16.png",
-		apple: "/apple-touch-icon.png",
-	},
+	manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
-const calSans = LocalFont({
-	src: "../public/fonts/CalSans-SemiBold.ttf",
-	variable: "--font-calsans",
-});
+export const viewport: Viewport = {
+	themeColor: META_THEME_COLORS.light,
+};
 
 export default function RootLayout({
 	children,
@@ -61,12 +67,12 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" suppressHydrationWarning className={inter.className}>
+		<html lang="en" suppressHydrationWarning>
 			<body
 				className={cn(
 					"min-h-screen bg-background font-sans antialiased",
-					calSans.variable,
-					inter.className,
+					serverMono.variable,
+					geist.variable,
 				)}
 			>
 				<ThemeProvider
@@ -75,9 +81,10 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					{children}
+					<div className="relative flex min-h-svh flex-col bg-background px-4">
+						{children}
+					</div>
 					<Toaster />
-					<TailwindIndicator />
 				</ThemeProvider>
 			</body>
 		</html>

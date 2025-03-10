@@ -1,7 +1,7 @@
 "use client";
 
 import { Icons } from "@/components/icons";
-import { useEffect, useState } from "react";
+import { type JSX, useEffect, useState } from "react";
 import { useScramble } from "use-scramble";
 
 interface TechItem {

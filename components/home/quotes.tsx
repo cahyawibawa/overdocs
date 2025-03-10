@@ -1,8 +1,9 @@
 "use client";
 
-import { useKeyboardShortcut } from "@/hooks/useKeyboardShortcuts";
+import { useKeyboardShortcut } from "@/hooks/use-keyboard-shortcuts";
 import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
+import { Button } from "../ui/button";
 
 const quotes = [
 	{
@@ -136,14 +137,16 @@ export const Quotes = () => {
 						</p>
 					</blockquote>
 				</div>
-				<button
+				<Button
+					variant="outline"
+					size="sm"
 					onClick={() =>
 						setCurrentIndex((prevIndex) => (prevIndex + 1) % quotes.length)
 					}
-					className="hidden whitespace-nowrap rounded-lg border border-muted p-2 text-sm transition-colors hover:border-dashed md:block "
+					className="relative inset-shadow-2xs inset-shadow-white flex cursor-pointer border border-zinc-300 bg-muted shadow-sm shadow-zinc-950/10 ring-0 duration-150 hover:bg-background dark:inset-shadow-transparent dark:border-border dark:bg-muted/25 dark:hover:bg-muted/50"
 				>
-					[n] next
-				</button>
+					<span className="text-xs">[n] next</span>
+				</Button>
 			</div>
 		</div>
 	);

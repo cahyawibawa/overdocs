@@ -1,6 +1,6 @@
 import { siteConfig } from "@/config/site";
 
-export const Hero = () => {
+export function Hero() {
 	return (
 		<div className="mt-6 flex flex-col gap-y-3">
 			<div>
@@ -40,4 +40,4 @@ export const Hero = () => {
 			</div>
 		</div>
 	);
-};
+}

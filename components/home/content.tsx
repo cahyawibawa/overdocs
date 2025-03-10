@@ -1,4 +1,4 @@
-export const Content = () => {
+export function Content() {
 	return (
 		<div className="flex flex-col gap-y-3">
 			<div>
@@ -34,4 +34,4 @@ export const Content = () => {
 			</div>
 		</div>
 	);
-};
+}
