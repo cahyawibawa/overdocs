@@ -21,6 +21,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { signUp } from "@/lib/auth-client";
 import { signUpFormSchema } from "@/lib/validations/auth";
+import { AssistedPasswordConfirmation } from "../_components/assist-password-confirmation";
 
 type SignUpFormValues = z.infer<typeof signUpFormSchema>;
 
@@ -37,6 +38,9 @@ export function SignUpForm() {
 			confirmPassword: "",
 		},
 	});
+
+	// Get the password value for the animation component
+	const password = form.watch("password");
 
 	async function onSubmit(values: SignUpFormValues) {
 		if (values.password !== values.confirmPassword) {
@@ -97,7 +101,7 @@ export function SignUpForm() {
 								<Input
 									type="text"
 									required
-									placeholder="tyler durden"
+									placeholder="forrest gump"
 									{...field}
 								/>
 							</FormControl>
@@ -130,7 +134,11 @@ export function SignUpForm() {
 						<FormItem>
 							<FormLabel>Password</FormLabel>
 							<FormControl>
-								<PasswordInput placeholder="********" {...field} />
+								<PasswordInput
+									className="tracking-[0.75em]"
+									placeholder="********"
+									{...field}
+								/>
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -143,13 +151,23 @@ export function SignUpForm() {
 						<FormItem>
 							<FormLabel>Confirm Password</FormLabel>
 							<FormControl>
-								<PasswordInput placeholder="********" {...field} />
+								<AssistedPasswordConfirmation
+									password={password}
+									value={field.value}
+									onChange={field.onChange}
+									placeholder="********"
+									error={!!form.formState.errors.confirmPassword}
+								/>
 							</FormControl>
 							<FormMessage />
 						</FormItem>
 					)}
 				/>
-				<Button type="submit" className="mt-2" disabled={isLoading}>
+				<Button
+					type="submit"
+					className="mt-2 cursor-pointer rounded-xl border border-zinc-950/40 border-b-2 bg-gradient-to-t from-blue-600 to-blue-500/85 text-white shadow-md shadow-zinc-950/20 ring-1 ring-white/25 ring-inset transition-all duration-200 hover:brightness-110 active:brightness-90 dark:border-zinc-950/50 dark:border-x-0 dark:border-t-0 dark:ring-white/5"
+					disabled={isLoading}
+				>
 					{isLoading && (
 						<Icons.spinner
 							className="mr-2 size-4 animate-spin"

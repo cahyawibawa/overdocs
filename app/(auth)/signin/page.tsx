@@ -15,13 +15,13 @@ import { SignInForm } from "../_components/signin-form";
 
 export default function SignInPage() {
 	return (
-		<Shell className="max-w-lg">
-			<Card>
-				<CardHeader>
+		<Shell className="w-full max-w-md">
+			<Card className="overflow-hidden rounded-xl">
+				<CardHeader className="text-center">
 					<CardTitle className="text-lg md:text-xl">
 						Sign in to Overdocs
 					</CardTitle>
-					<CardDescription className="text-xs md:text-sm">
+					<CardDescription>
 						Choose your preferred sign in method
 					</CardDescription>
 				</CardHeader>

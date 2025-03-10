@@ -15,13 +15,13 @@ import { SignUpForm } from "../_components/signup-form";
 
 export default function SignUpPage() {
 	return (
-		<Shell className="max-w-lg">
-			<Card>
-				<CardHeader>
+		<Shell className="w-full max-w-md">
+			<Card className="overflow-hidden rounded-xl">
+				<CardHeader className="text-center">
 					<CardTitle className="text-lg md:text-xl">
 						Sign up to Overdocs
 					</CardTitle>
-					<CardDescription className="text-xs md:text-sm">
+					<CardDescription>
 						Choose your preferred sign up method
 					</CardDescription>
 				</CardHeader>

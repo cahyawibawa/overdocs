@@ -1,6 +1,6 @@
 "use client";
 
-import { EyeNoneIcon, EyeOpenIcon } from "@radix-ui/react-icons";
+import { RiEyeLine, RiEyeOffLine } from "@remixicon/react";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -28,9 +28,9 @@ const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
 					disabled={props.value === "" || props.disabled}
 				>
 					{showPassword ? (
-						<EyeNoneIcon className="size-4" aria-hidden="true" />
+						<RiEyeOffLine className="size-4" aria-hidden="true" />
 					) : (
-						<EyeOpenIcon className="size-4" aria-hidden="true" />
+						<RiEyeLine className="size-4" aria-hidden="true" />
 					)}
 					<span className="sr-only">
 						{showPassword ? "Hide password" : "Show password"}

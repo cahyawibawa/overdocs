@@ -124,7 +124,7 @@ export function SignInForm() {
 						<FormItem>
 							<FormLabel>Password</FormLabel>
 							<FormControl>
-								<PasswordInput placeholder="********" {...field} />
+								<PasswordInput placeholder="* * * * * * * *" {...field} />
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -147,7 +147,11 @@ export function SignInForm() {
 						Resend verification email
 					</Button>
 				)}
-				<Button type="submit" className="w-full" disabled={isLoading}>
+				<Button
+					type="submit"
+					className="cursor-pointer rounded-xl border border-zinc-950/40 border-b-2 bg-gradient-to-t from-blue-600 to-blue-500/85 text-white shadow-md shadow-zinc-950/20 ring-1 ring-white/25 ring-inset transition-all duration-200 hover:brightness-110 active:brightness-90 dark:border-zinc-950/50 dark:border-x-0 dark:border-t-0 dark:ring-white/5"
+					disabled={isLoading}
+				>
 					{isLoading && (
 						<Icons.spinner
 							className="mr-2 size-4 animate-spin"

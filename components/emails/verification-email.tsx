@@ -5,75 +5,66 @@ import {
 	Head,
 	Heading,
 	Html,
+	Img,
 	Link,
 	Preview,
 	Section,
+	Tailwind,
 	Text,
 } from "@react-email/components";
-import { Tailwind } from "@react-email/tailwind";
 
 interface VerificationEmailProps {
 	url: string;
 	userFirstname?: string;
+	companyName?: string;
 }
 
 export default function VerificationEmail({
 	url,
 	userFirstname = "",
+	companyName = "Overdocs",
 }: VerificationEmailProps) {
+	const previewText = `Welcome to ${companyName}! Please verify your email address.`;
 	return (
 		<Html>
 			<Head />
 			<Preview>Verify your email address</Preview>
 			<Tailwind>
-				<Body className="bg-white font-sans">
-					<Container className="mx-auto px-10 py-20">
+				<Body className="mx-auto my-auto bg-white font-sans">
+					<Container className="mx-auto my-10 w-[465px] p-5">
 						<Section className="mt-8">
-							<svg
-								width="76"
-								height="65"
-								viewBox="0 0 76 65"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path d="M37.5274 0L75.0548 65H0L37.5274 0Z" fill="#000000" />
-							</svg>
-
-							<Heading className="mb-8 text-center font-normal text-2xl">
-								Verify your email address
-							</Heading>
-
-							{userFirstname && (
-								<Text className="text-gray-700">Hi {userFirstname},</Text>
-							)}
-
-							<Text className="text-gray-700">
-								Please click the button below to verify your email address:
-							</Text>
-
-							<Section className="mt-8 mb-8 text-center">
-								<Button
-									className="box-border w-full rounded-[8px] bg-zinc-950 px-[12px] py-[12px] text-center font-semibold text-white"
-									href={url}
-								>
-									Verify Email
-								</Button>
-							</Section>
-
-							<Text className="text-gray-500 text-sm">
-								If you didn't request this email, you can safely ignore it.
-							</Text>
-
-							<Text className="text-gray-500 text-sm">
-								Overdocs is built by{" "}
-								<Link
-									href="https://cahyawibawa.dev"
-									className="text-blue-600 no-underline"
-								>
-									cahyawibawa.dev
-								</Link>
-							</Text>
+							<Img
+								src={`${process.env.NEXT_PUBLIC_BASE_URL}/images/shadcn.jpg`}
+								width="40"
+								height="37"
+								alt="shadcn avatar"
+								className="mx-auto my-0"
+							/>
 						</Section>
+						<Heading className="mx-0 my-8 p-0 text-center font-normal text-2xl">
+							Welcome to <strong>{companyName}</strong>!
+						</Heading>
+						<Text className="text-center">
+							Please verify your email address by clicking the button below.
+						</Text>
+						<Section className="mt-[32px] mb-[32px] text-center">
+							<Button
+								className="rounded bg-[#000000] px-5 py-3 text-center font-semibold text-[12px] text-white no-underline"
+								href={url}
+							>
+								Verify Email
+							</Button>
+						</Section>
+						<Text className="text-sm">
+							Cheers,
+							<br />
+							<Link
+								href="https://cahyawibawa.com"
+								className="text-blue-600 no-underline"
+							>
+								cahyawibawa.com
+							</Link>
+						</Text>
 					</Container>
 				</Body>
 			</Tailwind>
