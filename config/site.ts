@@ -5,7 +5,8 @@ export const siteConfig = {
 	description: "A minimalisted SaaS templates with Next.js 15 and Better Auth.",
 	links: {
 		github: "https://github.com/cahyawibawa/overdocs",
-		deploy: "https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcahyawibawa%2Foverdocs",
+		deploy:
+			"https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcahyawibawa%2Foverdocs",
 	},
 	keywords: [
 		"Next.js",

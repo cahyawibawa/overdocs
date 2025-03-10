@@ -31,8 +31,7 @@ export const verifyEmailSchema = z.object({
 			message: "Verification code must be 6 characters long",
 		})
 		.max(6),
-})
-
+});
 
 export const resetPasswordSchema = z
 	.object({
@@ -43,4 +42,4 @@ export const resetPasswordSchema = z
 	.refine((data) => data.password === data.confirmPassword, {
 		message: "Passwords do not match",
 		path: ["confirmPassword"],
-	})
+	});
