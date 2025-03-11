@@ -1,40 +1,22 @@
-import ContactsTable from "@/components/contact-table";
 import { AppSidebar } from "@/components/sidebar/app-sidebar";
 import { NavHeader } from "@/components/sidebar/nav-header";
-import { StatsGrid } from "@/components/stat-grid";
 import { SwitcherTheme } from "@/components/switcher-theme";
-import {
-	Breadcrumb,
-	BreadcrumbItem,
-	BreadcrumbLink,
-	BreadcrumbList,
-	BreadcrumbPage,
-	BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
 	SidebarInset,
 	SidebarProvider,
 	SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { getSession } from "@/lib/auth";
-import { RiScanLine } from "@remixicon/react";
+
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export default async function AppLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const session = await getSession();
 	const cookieStore = await cookies();
 	const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
-
-	if (!session) {
-		redirect("/signin");
-	}
 
 	return (
 		<SidebarProvider defaultOpen={defaultOpen}>

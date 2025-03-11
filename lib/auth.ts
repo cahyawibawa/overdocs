@@ -8,6 +8,8 @@ import { nextCookies } from "better-auth/next-js";
 import { headers } from "next/headers";
 import { cache } from "react";
 
+const from = process.env.RESEND_DOMAIN || "onboarding@resend.dev";
+
 export const auth = betterAuth({
 	database: drizzleAdapter(db, {
 		provider: "pg",
@@ -19,7 +21,7 @@ export const auth = betterAuth({
 		sendResetPassword: async ({ user, url }) => {
 			try {
 				await resend.emails.send({
-					from: "overdocs <onboarding@resend.dev>",
+					from: `"no-reply" <no-reply@${process.env.RESEND_DOMAIN}>`,
 					to: user.email,
 					subject: "Reset Your Password",
 					react: ResetPasswordEmail({ url }),
@@ -36,15 +38,18 @@ export const auth = betterAuth({
 		sendOnSignUp: true,
 		sendVerificationEmail: async ({ user, url }) => {
 			try {
-				await resend.emails.send({
-					from: "overdocs <onboarding@resend.dev>",
+				const result = await resend.emails.send({
+					from: `"no-reply" <no-reply@${process.env.RESEND_DOMAIN}>`,
 					to: user.email,
 					subject: "Verify Your Email",
 					react: VerificationEmail({ url }),
 				});
-				console.log(`Verification email sent to ${user.email}`);
+				console.log(`Verification email sent to ${user.email}`, result);
 			} catch (error) {
 				console.error("Failed to send verification email:", error);
+				if (error instanceof Error) {
+					console.error("Error details:", error.message);
+				}
 			}
 		},
 	},
@@ -59,16 +64,6 @@ export const auth = betterAuth({
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
 			redirectURI: `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/callback/google`,
 		},
-		// facebook: {
-		// 	clientId: process.env.FACEBOOK_CLIENT_ID!,
-		// 	clientSecret: process.env.FACEBOOK_CLIENT_SECRET!,
-		// 	redirectURI: `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/callback/facebook`,
-		// },
-		// discord: {
-		// 	clientId: process.env.DISCORD_CLIENT_ID!,
-		// 	clientSecret: process.env.DISCORD_CLIENT_SECRET!,
-		// 	redirectURI: `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/callback/discord`,
-		// }
 	},
 });
 

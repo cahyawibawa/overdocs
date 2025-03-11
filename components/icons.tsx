@@ -1,8 +1,15 @@
 import { cn } from "@/lib/utils";
+import {
+	AlertTriangle,
+	type Icon as LucideIcon,
+	RefreshCw,
+} from "lucide-react";
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
+	warning: AlertTriangle,
+	refresh: RefreshCw,
 	spinner: (props: IconProps) => (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
