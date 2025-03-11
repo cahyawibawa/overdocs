@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import * as React from "react";
 import { useForm } from "react-hook-form";
@@ -13,6 +14,7 @@ import {
 	Card,
 	CardContent,
 	CardDescription,
+	CardFooter,
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
@@ -27,6 +29,7 @@ import {
 import { authClient } from "@/lib/auth-client";
 import { resetPasswordSchema } from "@/lib/validations/auth";
 import { toast } from "sonner";
+import { AssistedPasswordConfirmation } from "./assist-password-confirmation";
 
 type Inputs = z.infer<typeof resetPasswordSchema>;
 
@@ -43,6 +46,9 @@ export default function ResetPasswordForm() {
 			confirmPassword: "",
 		},
 	});
+
+	// Get the password value for the animation component
+	const password = form.watch("password");
 
 	async function onSubmit(data: Inputs) {
 		if (!token) {
@@ -70,9 +76,22 @@ export default function ResetPasswordForm() {
 
 	if (!token) {
 		return (
-			<div>
-				Invalid or missing reset token. Please request a new password reset.
-			</div>
+			<Card className="text-center">
+				<CardHeader className="space-y-1">
+					<CardTitle className="text-2xl">Check Your Email</CardTitle>
+					<CardDescription>
+						We've sent a password reset link to your email
+					</CardDescription>
+				</CardHeader>
+				<CardFooter className="flex justify-center">
+					<Button variant="outline" asChild>
+						<Link href="/forgot-password">
+							<Icons.refresh className="mr-2 size-4" />
+							Send new reset link
+						</Link>
+					</Button>
+				</CardFooter>
+			</Card>
 		);
 	}
 
@@ -93,7 +112,8 @@ export default function ResetPasswordForm() {
 									<FormLabel>New Password</FormLabel>
 									<FormControl>
 										<PasswordInput
-											placeholder="Enter your new password"
+											className="tracking-[0.75em]"
+											placeholder="********"
 											{...field}
 										/>
 									</FormControl>
@@ -108,9 +128,12 @@ export default function ResetPasswordForm() {
 								<FormItem>
 									<FormLabel>Confirm New Password</FormLabel>
 									<FormControl>
-										<PasswordInput
-											placeholder="Confirm your new password"
-											{...field}
+										<AssistedPasswordConfirmation
+											password={password}
+											value={field.value}
+											onChange={field.onChange}
+											placeholder="********"
+											error={!!form.formState.errors.confirmPassword}
 										/>
 									</FormControl>
 									<FormMessage />
