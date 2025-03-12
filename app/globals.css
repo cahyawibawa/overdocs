@@ -73,6 +73,7 @@
 	--sidebar-accent-foreground: hsl(240 4.8% 95.9%);
 	--sidebar-border: hsl(240 3.7% 15.9%);
 	--sidebar-ring: hsl(217.2 91.2% 59.8%);
+	--border-color: #2b2b2b;
 }
 
 @theme inline {
@@ -218,12 +219,8 @@
 		@apply border-border/50 dark:border-border border-dashed;
 	}
 	.container-wrapper {
-		@apply max-w-7xl min-[1400px]:border-x border-border/70 dark:border-border mx-auto w-full border-dashed;
+		@apply max-w-7xl mx-auto w-full;
 	}
-
-	/* .container {
-		@apply px-4 xl:px-6 mx-auto max-w-screen-2xl;
-	} */
 
 	.dot-fill {
 		position: relative;

@@ -143,7 +143,7 @@ export const Quotes = () => {
 					onClick={() =>
 						setCurrentIndex((prevIndex) => (prevIndex + 1) % quotes.length)
 					}
-					className="relative inset-shadow-2xs inset-shadow-white flex cursor-pointer border border-zinc-300 bg-muted shadow-sm shadow-zinc-950/10 ring-0 duration-150 hover:bg-background dark:inset-shadow-transparent dark:border-border dark:bg-muted/25 dark:hover:bg-muted/50"
+					className="relative inset-shadow-2xs inset-shadow-white hidden cursor-pointer border border-zinc-300 bg-muted shadow-sm shadow-zinc-950/10 ring-0 duration-150 hover:bg-background md:block dark:inset-shadow-transparent dark:border-border dark:bg-muted/25 dark:hover:bg-muted/50"
 				>
 					<span className="text-xs">[n] next</span>
 				</Button>
