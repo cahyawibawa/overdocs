@@ -1,23 +1,16 @@
+import { ActiveThemeProvider } from "@/components/active-theme";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
-import LocalFont from "next/font/local";
+import { cookies } from "next/headers";
+
 import { Toaster } from "sonner";
 
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-import "./globals.css";
+import { fontVariables } from "@/lib/fonts";
 
-const geist = Geist({
-	variable: "--font-geist",
-	subsets: ["latin"],
-});
-
-const serverMono = LocalFont({
-	src: "../fonts/ServerMono-Regular.otf",
-	variable: "--font-server-mono",
-});
+import "@/styles/globals.css";
 
 const META_THEME_COLORS = {
 	light: "#ffffff",
@@ -61,18 +54,36 @@ export const viewport: Viewport = {
 	themeColor: META_THEME_COLORS.light,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
+	const cookieStore = await cookies();
+	const activeThemeValue = cookieStore.get("active_theme")?.value;
+	const isScaled = activeThemeValue?.endsWith("-scaled");
+
 	return (
 		<html lang="en" suppressHydrationWarning>
+			<head>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+              try {
+                if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.querySelector('meta[name="theme-color"]').setAttribute('content', '${META_THEME_COLORS.dark}')
+                }
+              } catch (_) {}
+            `,
+					}}
+				/>
+			</head>
 			<body
 				className={cn(
-					"min-h-screen bg-background font-sans antialiased",
-					serverMono.variable,
-					geist.variable,
+					"overscroll-none bg-background font-sans antialiased",
+					activeThemeValue ? `theme-${activeThemeValue}` : "",
+					isScaled ? "theme-scaled" : "",
+					fontVariables,
 				)}
 			>
 				<ThemeProvider
@@ -80,10 +91,11 @@ export default function RootLayout({
 					defaultTheme="system"
 					enableSystem
 					disableTransitionOnChange
+					enableColorScheme
 				>
-					<div className="relative flex min-h-svh flex-col bg-background px-4">
+					<ActiveThemeProvider initialTheme={activeThemeValue}>
 						{children}
-					</div>
+					</ActiveThemeProvider>
 					<Toaster />
 				</ThemeProvider>
 			</body>

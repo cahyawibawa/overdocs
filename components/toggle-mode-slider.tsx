@@ -11,7 +11,9 @@ import {
 	DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
-export function ThemeToggle({ isDropDown = false }: { isDropDown?: boolean }) {
+export function ToggleModeSlider({
+	isDropDown = false,
+}: { isDropDown?: boolean }) {
 	const [mounted, setMounted] = useState(false);
 	const { theme, setTheme } = useTheme();
 
