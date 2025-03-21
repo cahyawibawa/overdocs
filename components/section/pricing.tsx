@@ -55,15 +55,9 @@ export function PricingTable({
 	};
 
 	return (
-		<section
-			className={cn(
-				"bg-background text-foreground",
-				"px-1",
-				"fade-bottom overflow-hidden pb-0",
-			)}
-		>
+		<section className={cn("px-1", "fade-bottom overflow-hidden pb-0")}>
 			<div className={cn("mx-auto w-full", containerClassName)} {...props}>
-				<h2 id="pricing" className="text-primary">
+				<h2 id="pricing" className="font-medium text-foreground">
 					Pricing
 				</h2>
 				<div className="mb-4 flex justify-end sm:mb-8">
@@ -100,14 +94,13 @@ export function PricingTable({
 							className={cn(
 								"flex-1 rounded-xl p-4 text-left transition-all",
 								"border border-zinc-200 dark:border-zinc-800",
-								selectedPlan === plan.level &&
-									"ring-2 ring-blue-500 dark:ring-blue-400",
+								selectedPlan === plan.level && "ring-2 ring-primary",
 							)}
 						>
 							<div className="mb-2 flex items-center justify-between">
 								<span className="font-medium text-sm">{plan.name}</span>
 								{plan.popular && (
-									<span className="rounded-full bg-blue-100 px-2 py-1 text-blue-600 text-xs dark:bg-blue-900 dark:text-blue-300">
+									<span className="rounded-full bg-primary px-2 py-1 text-primary-foreground text-xs">
 										Popular
 									</span>
 								)}
@@ -152,7 +145,7 @@ export function PricingTable({
 									className={cn(
 										"flex items-center p-4 transition-colors",
 										feature.included === selectedPlan &&
-											"bg-blue-50/50 dark:bg-blue-900/20",
+											"bg-primary/10 dark:bg-primary/20",
 									)}
 								>
 									<div className="flex-1 text-sm">{feature.name}</div>
@@ -166,7 +159,7 @@ export function PricingTable({
 												)}
 											>
 												{shouldShowCheck(feature.included, plan.level) ? (
-													<CheckIcon className="h-5 w-5 text-blue-500" />
+													<CheckIcon className="h-5 w-5 text-primary" />
 												) : (
 													<span className="text-zinc-300 dark:text-zinc-700">
 														-
@@ -184,7 +177,7 @@ export function PricingTable({
 				<div className="mt-8 text-center">
 					<Button
 						className={cn(
-							"mt-2 cursor-pointer rounded-xl border border-zinc-950/40 border-b-2 bg-gradient-to-t from-blue-600 to-blue-500/85 text-white shadow-md shadow-zinc-950/20 ring-1 ring-white/25 ring-inset transition-all duration-200 hover:brightness-110 active:brightness-90 dark:border-zinc-950/50 dark:border-x-0 dark:border-t-0 dark:ring-white/5",
+							"mt-2 cursor-pointer rounded-xl border border-zinc-950/40 border-b-2 bg-gradient-to-t from-primary/80 to-primary text-white shadow-md shadow-zinc-950/20 ring-1 ring-white/25 ring-inset transition-all duration-200 hover:brightness-110 active:brightness-90 dark:border-zinc-950/50 dark:border-x-0 dark:border-t-0 dark:ring-white/5",
 							buttonClassName,
 						)}
 					>

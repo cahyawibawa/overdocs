@@ -4,14 +4,16 @@ export function Hero() {
 	return (
 		<div className="mt-6 flex flex-col gap-y-3">
 			<div>
-				<h1 className="text-primary">The SaaS Starter You Need</h1>
+				<h1 className="font-medium text-foreground">
+					The SaaS Starter You Need
+				</h1>
 				<p>
 					Overdocs is a robust foundation for your product launch, built with
 					focus on{" "}
 					<a
 						data-discover="true"
 						href="#performance"
-						className="border-b border-dashed text-blue-600 underline-offset-2 hover:underline"
+						className="border-b border-dashed text-primary underline-offset-2 hover:underline"
 					>
 						performance
 					</a>
@@ -22,7 +24,7 @@ export function Hero() {
 					<a
 						rel="noreferrer"
 						target="_blank"
-						className="border-b border-dashed text-blue-600 underline-offset-2 hover:underline"
+						className="border-b border-dashed text-primary underline-offset-2 hover:underline"
 						href={siteConfig.links.deploy}
 					>
 						Vercel
@@ -31,7 +33,7 @@ export function Hero() {
 					<a
 						rel="noreferrer"
 						target="_blank"
-						className="border-b border-dashed text-blue-600 underline-offset-2 hover:underline"
+						className="border-b border-dashed text-primary underline-offset-2 hover:underline"
 						href={siteConfig.links.github}
 					>
 						GitHub.

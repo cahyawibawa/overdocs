@@ -58,9 +58,7 @@ export function Footer() {
 					<FooterLink href="#">Cookie Policy</FooterLink>
 				</div>
 				<div className="dashed-box p-3 sm:col-span-2 lg:col-span-1">
-					<h2 className="font-semibold text-primary hover:text-foreground">
-						Open source
-					</h2>
+					<h2 className="font-semibold">Open source</h2>
 					<FooterLink href="https://uitopia.xyz" external>
 						ui/topia
 					</FooterLink>
