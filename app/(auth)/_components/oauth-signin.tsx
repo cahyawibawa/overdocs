@@ -10,8 +10,6 @@ import { authClient } from "@/lib/auth-client";
 const oauthProviders = [
 	{ name: "GitHub", provider: "github", icon: "gitHub" },
 	{ name: "Google", provider: "google", icon: "google" },
-	// { name: "Discord", provider: "discord", icon: "discord" },
-	// { name: "Facebook", provider: "facebook", icon: "facebook" },
 ] as const;
 
 type OAuthProvider = (typeof oauthProviders)[number]["provider"];
@@ -24,7 +22,7 @@ export function OAuthSignIn() {
 			setLoading(provider);
 			const result = await authClient.signIn.social({
 				provider: provider,
-				callbackURL: "/dashboard", // Adjust this as needed
+				callbackURL: "/dashboard",
 			});
 
 			if (result.error) {
@@ -42,7 +40,7 @@ export function OAuthSignIn() {
 	}
 
 	return (
-		<div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-4">
+		<div className="grid gap-4 sm:grid-cols-2">
 			{oauthProviders.map((provider) => {
 				const Icon = Icons[provider.icon];
 
@@ -63,7 +61,6 @@ export function OAuthSignIn() {
 						) : (
 							<Icon className="size-4" aria-hidden="true" />
 						)}
-						{/* {provider.name} */}
 						<span className="sr-only">{provider.name}</span>
 					</Button>
 				);

@@ -168,8 +168,8 @@ export const TechStack = () => {
 
 	return (
 		<div className="py-1">
-			<p>Powered by robust tech stack:</p>
-			<div className="relative w-full">
+			<p className="text-[15px]">Powered by robust tech stack:</p>
+			<div className="relative mt-6 w-full">
 				<div className="absolute inset-0">{intersections}</div>
 				<div
 					className="relative mb-3 grid grid-cols-2 grid-rows-4 items-center justify-center md:grid-cols-4 md:grid-rows-2"

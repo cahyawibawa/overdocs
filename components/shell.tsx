@@ -7,7 +7,7 @@ const shellVariants = cva("grid my-6 items-center px-4 lg:px-6", {
 	variants: {
 		variant: {
 			default: "container",
-			home: "container-wrapper",
+			home: "max-w-screen-lg mx-auto",
 			sidebar: "",
 			centered: "container flex h-dvh max-w-2xl flex-col justify-center",
 			markdown: "container max-w-3xl py-8 md:py-10",

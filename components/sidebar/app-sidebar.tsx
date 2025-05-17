@@ -34,7 +34,7 @@ const data = {
 	},
 	teams: [
 		{
-			name: "Overdocs",
+			name: "Whelve",
 			logo: GalleryVerticalEnd,
 			plan: "Enterprise",
 		},

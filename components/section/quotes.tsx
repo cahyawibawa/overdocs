@@ -1,35 +1,28 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { useKeyboardShortcut } from "@/hooks/use-keyboard-shortcuts";
 import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
-import { Button } from "../ui/button";
 
 const quotes = [
 	{
-		text: "Instead of trying to search for mastery to build things, i was just like building things with the knowledge that i had at the time, putting out of the door and then progressively moving towards mastery.",
-		author: "Mariana Castilho",
-		title: "design engineer",
-		company: "pierre",
-		url: "https://pierre.com",
+		text: "Whelve is a great foundation for your product launch with a lot of features out of the box. I've been using it for a while now and it's been a great experience.",
+		author: "David Googins",
+		title: "Motivational Speaker",
+		company: "Googins",
+		url: "https://www.davidgoogins.com",
 	},
 	{
-		text: "My philosophy is that not only are you responsible for your life, but doing the best at this moment puts you in the best place for the next moment.",
-		author: "Oprah Winfrey",
+		text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+		author: "John Doe",
 		title: "",
 		company: "",
 		url: "",
 	},
 	{
-		text: "There are two kinds of people, those who do the work and those who take the credit. Try to be in the first group; there is less competition there.",
-		author: "Indira Gandhi",
-		title: "",
-		company: "",
-		url: "",
-	},
-	{
-		text: "You cannot define a person on just one thing. You can’t just forget all these wonderful and good things that a person has done because one thing didn’t come off the way you thought it should come off.",
-		author: "Aretha Franklin",
+		text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+		author: "John Doe",
 		title: "",
 		company: "",
 		url: "",
@@ -105,7 +98,7 @@ export const Quotes = () => {
 	});
 
 	return (
-		<div className="pt-5">
+		<div className="my-6">
 			<div className="flex items-center gap-6">
 				<div
 					{...handlers}
@@ -117,7 +110,9 @@ export const Quotes = () => {
 					aria-label="Testimonial quotes"
 				>
 					<blockquote className="mb-2">
-						<p>&ldquo;{quotes[currentIndex].text}&rdquo;</p>
+						<p className="text-[15px]">
+							&ldquo;{quotes[currentIndex].text}&rdquo;
+						</p>
 						<p className="mt-4">
 							—{" "}
 							<a
@@ -126,12 +121,18 @@ export const Quotes = () => {
 								rel="noopener noreferrer"
 								className="text-muted-foreground hover:text-foreground"
 							>
-								<span className="font-bold">{quotes[currentIndex].author}</span>
+								<span className="font-semibold text-[15px]">
+									{quotes[currentIndex].author}
+								</span>
 								{quotes[currentIndex].title && (
-									<span>, {quotes[currentIndex].title}</span>
+									<span className="text-[15px]">
+										, {quotes[currentIndex].title}
+									</span>
 								)}
 								{quotes[currentIndex].company && (
-									<span>, @{quotes[currentIndex].company}</span>
+									<span className="text-[15px]">
+										, @{quotes[currentIndex].company}
+									</span>
 								)}
 							</a>
 						</p>

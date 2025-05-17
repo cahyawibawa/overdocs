@@ -65,7 +65,7 @@ export function Header() {
 						<div className="size-6 rounded-full bg-primary"></div>
 					</Link>
 					<nav aria-label="main-nav" className="hidden items-center md:flex">
-						<ul className="flex flex-wrap gap-x-1 md:flex-wrap">
+						<ul className="flex flex-wrap gap-x-1 text-[15px] md:flex-wrap">
 							{navigationItems.map((item, index) => (
 								<li key={item.label}>
 									<Link

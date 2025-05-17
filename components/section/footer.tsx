@@ -16,7 +16,7 @@ function FooterLink({ href, children, external }: FooterLinkProps) {
 
 	return (
 		<a
-			className="-indent-1ch block pl-1ch text-primary hover:text-foreground"
+			className="-indent-1ch block pl-1ch text-[15px] text-muted-foreground/95 hover:text-foreground"
 			href={href}
 			{...linkProps}
 		>
@@ -62,7 +62,7 @@ export function Footer() {
 					<FooterLink href="https://uitopia.xyz" external>
 						ui/topia
 					</FooterLink>
-					<FooterLink href="https://github.com/cahyawibawa/overdocs" external>
+					<FooterLink href="https://github.com/cahyawibawa/whelve" external>
 						GitHub
 					</FooterLink>
 				</div>

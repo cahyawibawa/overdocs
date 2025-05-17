@@ -5,7 +5,7 @@ export function Content() {
 				<h2 id="performance" className="font-medium text-foreground">
 					Performance
 				</h2>
-				<div className="space-y-3">
+				<div className="space-y-3 text-[15px]">
 					{[
 						"Powered by Next.js for fast, modern server-side rendering.",
 						"Seamless authentication with Better Auth.",
@@ -20,7 +20,7 @@ export function Content() {
 			<hr className="dot-fill my-5"></hr>
 			<div>
 				<h2 className="font-medium text-foreground">Battery guaranteed</h2>
-				<div className="space-y-3">
+				<div className="space-y-3 text-[15px]">
 					{[
 						"Actively maintained and follows best practices.",
 						"Fully open-source and available on GitHub.",

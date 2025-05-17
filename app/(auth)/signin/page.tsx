@@ -18,8 +18,8 @@ export default function SignInPage() {
 		<Shell className="w-full max-w-md">
 			<Card className="overflow-hidden rounded-xl">
 				<CardHeader className="text-center">
-					<CardTitle className="text-lg md:text-xl">
-						Sign in to Overdocs
+					<CardTitle className="font-bold font-primary text-lg md:text-xl">
+						Sign in to Whelve
 					</CardTitle>
 					<CardDescription>
 						Choose your preferred sign in method
