@@ -75,6 +75,9 @@
 }
 
 @theme inline {
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
+	--font-primary: var(--font-satoshi);
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);
@@ -156,7 +159,6 @@
 		scrollbar-width: thin;
 		scroll-behavior: smooth;
 
-		p,
 		h1,
 		h2,
 		h3,
